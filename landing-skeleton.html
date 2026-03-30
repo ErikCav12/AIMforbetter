@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Product | Landing Page</title>
+  <meta name="description" content="A clear value-driven landing page skeleton you can customize quickly.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a31;
+      --text: #e8ecff;
+      --muted: #aab4d9;
+      --brand: #6ea8fe;
+      --brand-2: #8ef0d6;
+      --border: #223055;
+      --max: 1120px;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 20% 0%, #182648, var(--bg) 35%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .section { padding: 4.5rem 0; }
+    .eyebrow { color: var(--brand-2); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .section h2 { margin: 0.5rem 0 0.8rem; font-size: clamp(1.7rem, 3vw, 2.4rem); }
+    .section p.lead { color: var(--muted); max-width: 62ch; margin-bottom: 2rem; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 120ms ease, opacity 120ms ease;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.95; }
+    .btn-primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #041027; }
+    .btn-secondary { border-color: var(--border); background: transparent; color: var(--text); }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(11, 16, 32, 0.75);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand { font-weight: 800; letter-spacing: 0.01em; }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+    }
+    .hero p { color: var(--muted); max-width: 56ch; }
+    .hero-cta { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .hero-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #182648, #11192f);
+      padding: 1.25rem;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .logos {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .logo-row { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+    }
+    .card h3 { margin: 0.3rem 0 0.5rem; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .step-num { color: var(--brand-2); font-weight: 700; font-size: 0.9rem; }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0.3rem 0;
+    }
+
+    .faq details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      background: var(--surface);
+    }
+    .faq details + details { margin-top: 0.75rem; }
+    .faq summary { cursor: pointer; font-weight: 600; }
+    .faq p { color: var(--muted); margin: 0.7rem 0 0.2rem; }
+
+    .cta {
+      background: linear-gradient(120deg, #22345f, #1a2749 55%, #2a426f);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-3, .steps, .pricing { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">YourBrand</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-secondary" href="#cta">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="top">
+      <div>
+        <p class="eyebrow">For teams who move fast</p>
+        <h1>One clear headline that explains your value in 5 seconds</h1>
+        <p>
+          Add one short paragraph describing the specific problem you solve, for who,
+          and what outcome they can expect.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#cta">Start Free Trial</a>
+          <a class="btn btn-secondary" href="#how">Watch Demo</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Product preview">
+        <h3>Product Preview</h3>
+        <p style="color: var(--muted); margin-top: 0;">Use this area for a screenshot, mockup, or short explainer.</p>
+      </aside>
+    </section>
+
+    <section class="logos">
+      <div class="container logo-row">
+        <span>Trusted by Company A</span>
+        <span>Company B</span>
+        <span>Company C</span>
+        <span>Company D</span>
+        <span>Company E</span>
+      </div>
+    </section>
+
+    <section class="section container" id="features">
+      <p class="eyebrow">Features</p>
+      <h2>Three core benefits your users care about</h2>
+      <p class="lead">Keep benefits outcome-focused rather than feature-heavy.</p>
+      <div class="grid-3">
+        <article class="card">
+          <p class="eyebrow">01</p>
+          <h3>Primary benefit</h3>
+          <p>Explain the direct impact and why this matters to your audience.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">02</p>
+          <h3>Secondary benefit</h3>
+          <p>Show measurable value like speed, quality, or confidence.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">03</p>
+          <h3>Differentiator</h3>
+          <p>Communicate what makes this better than alternatives.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="how">
+      <p class="eyebrow">How it works</p>
+      <h2>Simple 3-step flow</h2>
+      <p class="lead">Users should understand setup in less than 20 seconds.</p>
+      <div class="steps">
+        <article class="card">
+          <p class="step-num">Step 1</p>
+          <h3>Sign up</h3>
+          <p>Create an account and set your baseline preferences.</p>
+        </article>
+        <article class="card">
+          <p class="step-num">Step 2</p>
+          <h3>Connect your workflow</h3>
+          <p>Import data or integrate tools in a guided setup.</p>
+        </article>
+        <article class="card">
+          <p class="step-num">Step 3</p>
+          <h3>See outcomes</h3>
+          <p>Track improvements through clear dashboards and reports.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="testimonials">
+      <p class="eyebrow">Social proof</p>
+      <h2>Customer testimonials</h2>
+      <p class="lead">Use real names, roles, and outcomes where possible.</p>
+      <div class="grid-3">
+        <blockquote class="card">"This cut our process time by 40% in two weeks."</blockquote>
+        <blockquote class="card">"Setup was smooth, and our team adopted it fast."</blockquote>
+        <blockquote class="card">"The ROI became obvious within the first month."</blockquote>
+      </div>
+    </section>
+
+    <section class="section container" id="pricing">
+      <p class="eyebrow">Pricing</p>
+      <h2>Clear plans with one recommended option</h2>
+      <p class="lead">Keep pricing simple and remove hidden costs.</p>
+      <div class="pricing">
+        <article class="card">
+          <h3>Starter</h3>
+          <p class="price">$19<span style="font-size: 1rem; color: var(--muted);">/mo</span></p>
+          <p>Best for individuals getting started.</p>
+        </article>
+        <article class="card" style="outline: 2px solid var(--brand);">
+          <h3>Growth</h3>
+          <p class="price">$79<span style="font-size: 1rem; color: var(--muted);">/mo</span></p>
+          <p>Best for growing teams needing collaboration.</p>
+        </article>
+        <article class="card">
+          <h3>Enterprise</h3>
+          <p class="price">Custom</p>
+          <p>Advanced support, security, and custom workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container faq" id="faq">
+      <p class="eyebrow">FAQ</p>
+      <h2>Answer common objections early</h2>
+      <details>
+        <summary>How long does setup take?</summary>
+        <p>Most teams finish onboarding in under 30 minutes.</p>
+      </details>
+      <details>
+        <summary>Can I cancel any time?</summary>
+        <p>Yes. You can upgrade, downgrade, or cancel from your account settings.</p>
+      </details>
+      <details>
+        <summary>Do you offer support?</summary>
+        <p>Yes. Email support is included, and premium support is available on higher plans.</p>
+      </details>
+    </section>
+
+    <section class="section container" id="cta">
+      <div class="cta">
+        <div>
+          <p class="eyebrow">Ready to start?</p>
+          <h2 style="margin: 0.3rem 0;">End with one strong call to action</h2>
+          <p style="margin: 0; color: var(--muted);">Make the next step obvious and low-friction.</p>
+        </div>
+        <a class="btn btn-primary" href="#">Create Your Account</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>&copy; <span id="year"></span> YourBrand. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy</a> ·
+        <a href="#">Terms</a> ·
+        <a href="#">Contact</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

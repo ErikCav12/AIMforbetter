@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page System Diagram (Railway)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f6f8fb;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 32px;
+    }
+    .diagram-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 28px;
+      width: min(1200px, 100%);
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 6px;
+      color: #2a2a2a;
+    }
+    p.subtitle {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    svg { width: 100%; height: auto; display: block; }
+    .node-title { font-size: 14px; font-weight: 600; fill: #333; }
+    .node-sub { font-size: 11px; fill: #666; }
+    .arrow-label { font-size: 11px; fill: #555; }
+    .legend-label { font-size: 11px; fill: #555; }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <h1>Landing Page System Diagram (Railway)</h1>
+    <p class="subtitle">Typical static website flow for deployment and delivery.</p>
+
+    <svg viewBox="0 0 1120 560" role="img" aria-label="System architecture diagram for Railway landing page deployment">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#888"></polygon>
+        </marker>
+      </defs>
+
+      <!-- Container: Internet -->
+      <rect x="40" y="50" width="390" height="420" rx="12" fill="#fffde7" stroke="#fff9c4" stroke-width="2" stroke-dasharray="8 6"></rect>
+      <text x="58" y="78" class="node-title">Public Internet</text>
+
+      <!-- Container: Railway -->
+      <rect x="470" y="50" width="450" height="420" rx="12" fill="#fffde7" stroke="#fff9c4" stroke-width="2" stroke-dasharray="8 6"></rect>
+      <text x="488" y="78" class="node-title">Railway Project</text>
+
+      <!-- Input / Data source -->
+      <g transform="translate(70, 130)">
+        <rect width="150" height="74" rx="10" fill="#ffb3b3" stroke="#e88a8a" stroke-width="1.5"></rect>
+        <text x="75" y="30" text-anchor="middle" class="node-title">User Browser</text>
+        <text x="75" y="50" text-anchor="middle" class="node-sub">Desktop / Mobile</text>
+      </g>
+
+      <!-- External service -->
+      <g transform="translate(260, 130)">
+        <rect width="140" height="74" rx="10" fill="#b2ebf2" stroke="#80deea" stroke-width="1.5"></rect>
+        <rect x="4" y="4" width="132" height="66" rx="8" fill="none" stroke="#80deea" stroke-width="1"></rect>
+        <text x="70" y="30" text-anchor="middle" class="node-title">DNS Provider</text>
+        <text x="70" y="50" text-anchor="middle" class="node-sub">Domain routing</text>
+      </g>
+
+      <!-- External service -->
+      <g transform="translate(260, 270)">
+        <rect width="140" height="74" rx="10" fill="#b2ebf2" stroke="#80deea" stroke-width="1.5"></rect>
+        <rect x="4" y="4" width="132" height="66" rx="8" fill="none" stroke="#80deea" stroke-width="1"></rect>
+        <text x="70" y="30" text-anchor="middle" class="node-title">CDN / Edge</text>
+        <text x="70" y="50" text-anchor="middle" class="node-sub">Cached delivery</text>
+      </g>
+
+      <!-- Orchestrator -->
+      <g transform="translate(520, 130)">
+        <rect width="180" height="74" rx="10" fill="#fff9c4" stroke="#fff176" stroke-width="1.5"></rect>
+        <text x="90" y="30" text-anchor="middle" class="node-title">Railway Service</text>
+        <text x="90" y="50" text-anchor="middle" class="node-sub">Build + runtime</text>
+      </g>
+
+      <!-- Agent / Processor -->
+      <g transform="translate(740, 130)">
+        <rect width="150" height="74" rx="10" fill="#c5cae9" stroke="#9fa8da" stroke-width="1.5"></rect>
+        <text x="75" y="30" text-anchor="middle" class="node-title">Nginx Container</text>
+        <text x="75" y="50" text-anchor="middle" class="node-sub">Serves static files</text>
+      </g>
+
+      <!-- Storage -->
+      <g transform="translate(560, 270)">
+        <rect width="160" height="74" rx="10" fill="#e1bee7" stroke="#ce93d8" stroke-width="1.5"></rect>
+        <text x="80" y="30" text-anchor="middle" class="node-title">Repo / Image</text>
+        <text x="80" y="50" text-anchor="middle" class="node-sub">HTML, CSS, JS assets</text>
+      </g>
+
+      <!-- Output -->
+      <g transform="translate(760, 270)">
+        <rect width="140" height="74" rx="10" fill="#c8e6c9" stroke="#a5d6a7" stroke-width="1.5"></rect>
+        <text x="70" y="30" text-anchor="middle" class="node-title">Rendered Page</text>
+        <text x="70" y="50" text-anchor="middle" class="node-sub">Fast first paint</text>
+      </g>
+
+      <!-- Optional external analytics -->
+      <g transform="translate(950, 160)">
+        <rect width="140" height="74" rx="10" fill="#b2ebf2" stroke="#80deea" stroke-width="1.5"></rect>
+        <rect x="4" y="4" width="132" height="66" rx="8" fill="none" stroke="#80deea" stroke-width="1"></rect>
+        <text x="70" y="30" text-anchor="middle" class="node-title">Analytics</text>
+        <text x="70" y="50" text-anchor="middle" class="node-sub">Optional tracking</text>
+      </g>
+
+      <!-- Arrows -->
+      <line x1="220" y1="167" x2="260" y2="167" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></line>
+      <text x="240" y="156" text-anchor="middle" class="arrow-label">URL request</text>
+
+      <path d="M 330 204 L 330 307" fill="none" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></path>
+      <text x="338" y="258" class="arrow-label">resolve + route</text>
+
+      <path d="M 400 307 L 520 307 L 520 167" fill="none" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></path>
+      <text x="462" y="295" text-anchor="middle" class="arrow-label">forward traffic</text>
+
+      <line x1="700" y1="167" x2="740" y2="167" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></line>
+      <text x="720" y="156" text-anchor="middle" class="arrow-label">run image</text>
+
+      <path d="M 640 270 L 640 204" fill="none" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></path>
+      <text x="650" y="236" class="arrow-label">build artifact</text>
+
+      <line x1="890" y1="307" x2="760" y2="307" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></line>
+      <text x="825" y="296" text-anchor="middle" class="arrow-label">HTML/CSS/JS</text>
+
+      <path d="M 760 307 L 330 307" fill="none" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></path>
+      <text x="548" y="324" text-anchor="middle" class="arrow-label">response payload</text>
+
+      <path d="M 890 167 L 950 167" fill="none" stroke="#888" stroke-width="1.7" marker-end="url(#arrowhead)"></path>
+      <text x="920" y="156" text-anchor="middle" class="arrow-label">events</text>
+
+      <!-- Legend -->
+      <g transform="translate(40, 495)">
+        <rect x="0" y="0" width="18" height="12" fill="#ffb3b3" stroke="#e88a8a"></rect>
+        <text x="24" y="10" class="legend-label">Input</text>
+
+        <rect x="90" y="0" width="18" height="12" fill="#fff9c4" stroke="#fff176"></rect>
+        <text x="114" y="10" class="legend-label">Orchestrator</text>
+
+        <rect x="220" y="0" width="18" height="12" fill="#c5cae9" stroke="#9fa8da"></rect>
+        <text x="244" y="10" class="legend-label">Processor</text>
+
+        <rect x="330" y="0" width="18" height="12" fill="#e1bee7" stroke="#ce93d8"></rect>
+        <text x="354" y="10" class="legend-label">Storage</text>
+
+        <rect x="440" y="0" width="18" height="12" fill="#c8e6c9" stroke="#a5d6a7"></rect>
+        <text x="464" y="10" class="legend-label">Output</text>
+
+        <rect x="540" y="0" width="18" height="12" fill="#b2ebf2" stroke="#80deea"></rect>
+        <text x="564" y="10" class="legend-label">External service</text>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>
