@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.addEventListener('click', toggleMenu);
 
+    const overlayClose = document.getElementById('overlay-close');
+    if (overlayClose) overlayClose.addEventListener('click', closeMenu);
+
 
     // Close on link click
     menuLinks.forEach(link => {
