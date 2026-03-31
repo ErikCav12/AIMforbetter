@@ -142,3 +142,20 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.2);
 }
+
+/* ── Close button ── */
+.menu-close {
+    position: absolute;
+    top: 22px;
+    right: clamp(1.5rem, 4vw, 4rem);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 200;
+    line-height: 1;
+    padding: 0.25rem;
+    transition: color 0.2s;
+}
+.menu-close:hover { color: var(--white); }
