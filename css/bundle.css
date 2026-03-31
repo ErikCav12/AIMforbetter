@@ -109,7 +109,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 200;
     padding: 0 clamp(1.5rem, 4vw, 4rem);
     height: 72px;
     display: flex;
@@ -198,6 +198,7 @@ a {
     z-index: 150;
     background: var(--navy);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
