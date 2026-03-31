@@ -1,0 +1,14 @@
+node_modules
+test-results
+test-screenshots
+playwright-report
+tests
+playwright.config.ts
+package.json
+package-lock.json
+.git
+.gitignore
+docs
+README.md
+landing-skeleton.html
+landing-system-diagram.html
