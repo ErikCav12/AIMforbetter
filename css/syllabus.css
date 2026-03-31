@@ -1,0 +1,132 @@
+/* ── Syllabus page ── */
+.syllabus-intro {
+    max-width: 700px;
+}
+
+/* ── Delivery formats grid ── */
+.delivery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.delivery-card {
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.delivery-card h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.delivery-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.delivery-list li {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 300;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.delivery-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+}
+
+/* ── Mapping section ── */
+.mapping-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.mapping-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: var(--blue-subtle);
+    text-align: center;
+}
+
+.mapping-item .stat-figure {
+    font-size: 2rem;
+    margin-bottom: 0.35rem;
+}
+
+.mapping-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ── Customisation section ── */
+.custom-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.custom-list li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.custom-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.custom-list li:last-child {
+    border-bottom: none;
+}
+
+.syllabus-cta {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .delivery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mapping-row {
+        flex-direction: column;
+    }
+}

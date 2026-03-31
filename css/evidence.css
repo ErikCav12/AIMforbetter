@@ -1,0 +1,161 @@
+/* ── Evidence page ── */
+.evidence-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.evidence-intro .s-body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── Contrast pairs ── */
+.contrast-pairs {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.contrast-pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.contrast-pair:last-child {
+    border-bottom: none;
+}
+
+.stat-card {
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.stat-card--positive {
+    background: var(--blue-subtle);
+}
+
+.stat-card--negative {
+    background: #fef5f5;
+}
+
+.stat-card .counter {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card--negative .counter {
+    color: #c0392b;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.stat-card .stat-source {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 0.75rem;
+    display: block;
+}
+
+.stat-card .stat-source a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ── Divider between pairs ── */
+.contrast-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+}
+
+.contrast-divider::before {
+    content: 'vs';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    background: var(--white);
+    padding: 0.25rem 0.5rem;
+}
+
+/* ── Punchline ── */
+.evidence-punchline {
+    margin-top: 4rem;
+    padding: 4rem 3rem;
+    background: var(--navy);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.evidence-punchline .counter {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.evidence-punchline p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.evidence-punchline .stat-source {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 1.25rem;
+    display: block;
+}
+
+.evidence-punchline .stat-source a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .contrast-pair {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 2rem 0;
+    }
+
+    .contrast-divider {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .evidence-punchline {
+        padding: 3rem 1.5rem;
+    }
+}

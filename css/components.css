@@ -1,0 +1,280 @@
+/* ── Buttons ── */
+.btn-primary {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.15s;
+    letter-spacing: -0.01em;
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--border);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.25s, transform 0.15s;
+    letter-spacing: -0.01em;
+    font-family: inherit;
+}
+
+.btn-secondary:hover {
+    border-color: var(--navy);
+    transform: translateY(-1px);
+}
+
+/* ── Cards ── */
+.o-card {
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.o-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(25,25,89,0.06);
+}
+
+.o-card h3 {
+    font-size: 1.3rem;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.o-card p {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-weight: 300;
+}
+
+/* ── Email forms ── */
+.email-row {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.email-row input {
+    flex: 1;
+    padding: 0.9rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    background: rgba(255,255,255,0.07);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+}
+
+.email-row input::placeholder { color: rgba(255,255,255,0.35); }
+.email-row input:focus { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.1); }
+
+.email-row button {
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 100px;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.25s;
+    font-family: inherit;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+
+.email-row button:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* Email form on light backgrounds */
+.email-row--light input {
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+}
+
+.email-row--light input::placeholder { color: var(--text-light); }
+.email-row--light input:focus { border-color: var(--accent); background: var(--white); }
+
+.form-fine-print {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.form-message {
+    display: none;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    font-size: 0.95rem;
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-message.error {
+    color: #ffd7d7;
+    border-color: rgba(255,130,130,0.45);
+    background: rgba(255,80,80,0.12);
+}
+
+/* ── Accordion ── */
+.accordion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    text-align: left;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+}
+
+.accordion-trigger:hover {
+    color: var(--accent);
+}
+
+.accordion-trigger::after {
+    content: '+';
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-light);
+    transition: transform 0.35s var(--ease);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.accordion-item.expanded > .accordion-trigger::after {
+    transform: rotate(45deg);
+}
+
+/* Hide ::after when trigger has its own expand icon */
+.pillar-trigger.accordion-trigger::after,
+.objective-trigger.accordion-trigger::after {
+    display: none;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s var(--ease);
+}
+
+.accordion-inner {
+    padding: 0 0 1.5rem;
+}
+
+.accordion-inner p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+/* Nested accordions */
+.accordion-inner .accordion-trigger {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem 0;
+}
+
+.accordion-inner .accordion-inner {
+    padding-left: 1rem;
+}
+
+/* ── Footer ── */
+footer {
+    padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+}
+
+footer p,
+footer a {
+    font-size: 0.78rem;
+    color: var(--text-light);
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover { color: var(--navy); }
+
+.footer-strapline {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .email-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+}

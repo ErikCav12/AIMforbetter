@@ -1,0 +1,87 @@
+/* ── Scroll reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Contrast pair slide-ins (Evidence page) ── */
+/* Slide-ins: visible by default, animated when JS adds .animate-ready */
+.slide-in-left,
+.slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contrast-pair.animate-ready .slide-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.contrast-pair.animate-ready .slide-in-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: 0.15s;
+}
+
+.contrast-pair.visible .slide-in-left,
+.contrast-pair.visible .slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Counter animation ── */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Bar fill animation ── */
+.bar-fill {
+    width: 0;
+    transition: width 1.2s var(--ease);
+}
+
+.bar-fill.visible {
+    width: var(--bar-width, 0%);
+}
+
+/* ── Accessibility: reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .slide-in-left,
+    .slide-in-right,
+    .bar-fill {
+        transition: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .slide-in-left,
+    .slide-in-right {
+        opacity: 1;
+        transform: none;
+    }
+
+    .bar-fill {
+        width: var(--bar-width, 0%);
+    }
+
+    .accordion-content {
+        transition: none;
+    }
+}

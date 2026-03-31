@@ -1,0 +1,206 @@
+/* ── Modules page ── */
+
+/* ── Flagship hero card ── */
+.flagship-hero {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.flagship-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(61,90,239,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.flagship-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.flagship-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1rem;
+}
+
+.flagship-hero h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+}
+
+.flagship-hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+.flagship-tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.flagship-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+}
+
+/* ── Module sections ── */
+.module-section {
+    margin-top: 4rem;
+}
+
+.module-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.module-number {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--accent);
+    opacity: 0.5;
+}
+
+.module-section h3 {
+    font-size: 1.35rem;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+}
+
+.module-focus {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.module-components {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.module-components li {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 300;
+    padding: 0.85rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+}
+
+.module-components li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.4;
+}
+
+.module-components li:last-child {
+    border-bottom: none;
+}
+
+/* ── Delivery approach ── */
+.delivery-approach {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: var(--blue-subtle);
+}
+
+.delivery-approach h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.approach-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 2rem;
+}
+
+.approach-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 300;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.approach-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* ── Coming soon ── */
+.coming-soon {
+    margin-top: 4rem;
+    padding: 2rem;
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.coming-soon p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.modules-cta {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .flagship-hero {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .approach-list {
+        grid-template-columns: 1fr;
+    }
+}

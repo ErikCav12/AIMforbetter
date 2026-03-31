@@ -1,0 +1,140 @@
+/* ── Fixed Nav ── */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 clamp(1.5rem, 4vw, 4rem);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, box-shadow 0.4s;
+}
+
+.nav.scrolled {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-logo {
+    height: 32px;
+    transition: opacity 0.2s;
+}
+
+.nav-logo:hover { opacity: 0.8; }
+
+/* ── Hero-aware nav states ── */
+.nav.hero-visible .nav-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* ── Burger icon ── */
+.burger {
+    width: 32px;
+    height: 24px;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 200;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), top 0.35s var(--ease);
+}
+
+.burger span:nth-child(1) { top: 0; }
+.burger span:nth-child(2) { top: 11px; }
+.burger span:nth-child(3) { top: 22px; }
+
+/* White burger on hero */
+.nav.hero-visible .burger span {
+    background: var(--white);
+}
+
+/* Burger X state */
+.burger.open span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+/* Always white when menu is open */
+.burger.open span {
+    background: var(--white);
+}
+
+/* ── Full-screen overlay menu ── */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease), visibility 0.4s;
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-overlay nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.menu-overlay nav a {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+    letter-spacing: -0.01em;
+}
+
+.menu-overlay nav a:hover {
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+.menu-overlay nav a.active {
+    color: var(--white);
+}
+
+/* ── Strapline in menu ── */
+.menu-strapline {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+}
