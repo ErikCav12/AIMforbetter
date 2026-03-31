@@ -254,26 +254,25 @@ body.menu-open .nav {
     box-shadow: none;
 }
 
-/* ── Overlay close button ── */
+/* ── Overlay close X ── */
 .overlay-close {
     position: absolute;
-    top: 20px;
+    top: 18px;
     right: clamp(1.5rem, 4vw, 4rem);
+    width: 48px;
+    height: 48px;
     background: none;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.6);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    padding: 0.5rem 1.25rem;
-    border-radius: 100px;
+    border: none;
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s;
 }
 .overlay-close:hover {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.5);
+    opacity: 1;
 }
 /* ── Buttons ── */
 .btn-primary {
