@@ -143,32 +143,8 @@
     color: rgba(255,255,255,0.2);
 }
 
-/* ── Close button ── */
-.menu-close {
-    position: absolute;
-    top: 20px;
-    right: clamp(1.5rem, 4vw, 4rem);
-    width: 48px;
-    height: 48px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 200;
-    padding: 0;
-    transition: opacity 0.2s;
+/* Nav visible above overlay when menu is open */
+body.menu-open .nav {
+    background: transparent;
+    box-shadow: none;
 }
-.menu-close::before,
-.menu-close::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 32px;
-    height: 2px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 2px;
-}
-.menu-close::before { transform: translate(-50%, -50%) rotate(45deg); }
-.menu-close::after { transform: translate(-50%, -50%) rotate(-45deg); }
-.menu-close:hover::before,
-.menu-close:hover::after { background: var(--white); }

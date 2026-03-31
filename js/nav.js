@@ -45,9 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.addEventListener('click', toggleMenu);
 
-    // Close button
-    const closeBtn = document.getElementById('menu-close');
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
     // Close on link click
     menuLinks.forEach(link => {
