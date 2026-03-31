@@ -1,0 +1,148 @@
+/* ── Contact page ── */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3.5rem;
+    align-items: start;
+}
+
+/* ── Structured form ── */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%237a7a96'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.contact-form .btn-primary {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.contact-form .form-message {
+    background: var(--blue-subtle);
+    border-color: var(--border);
+    color: var(--text);
+    border-radius: 10px;
+    text-align: left;
+    margin: 0;
+    max-width: none;
+}
+
+.contact-form .form-message.error {
+    background: #fef5f5;
+    border-color: #f5c6c6;
+    color: #c0392b;
+}
+
+/* ── Right column: book a call + email ── */
+.contact-alt {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-card {
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.contact-card h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.contact-card p {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+}
+
+.contact-card .btn-secondary {
+    display: inline-block;
+}
+
+.contact-email {
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    background: var(--blue-subtle);
+}
+
+.contact-email p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.contact-email a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-email a:hover {
+    color: var(--accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

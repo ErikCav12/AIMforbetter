@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AIM</title>
+    <meta name="description" content="Get in touch with AIM. Send an enquiry or book a call to discuss responsible AI training for your organisation.">
+    <link rel="icon" href="../favicon.ico" sizes="32x32">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <script data-goatcounter="https://aim.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+
+    <!-- Nav -->
+    <header class="nav scrolled" id="nav">
+        <a href="../index.html"><img src="../logo-transparent.png" alt="AIM" class="nav-logo"></a>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Menu overlay -->
+    <div class="menu-overlay" id="menu-overlay" role="navigation" aria-label="Main menu" inert>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="backstory.html">Our Backstory</a>
+            <a href="evidence.html">The Evidence</a>
+            <a href="solutions.html">Solutions &amp; Methods</a>
+            <a href="syllabus.html">Our Syllabus</a>
+            <a href="modules.html">Modules &amp; Packages</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </nav>
+        <p class="menu-strapline">Aim for better.</p>
+    </div>
+
+    <main>
+
+    <!-- Page content -->
+    <section class="s" style="padding-top: 8rem;">
+        <div class="s-inner">
+            <div class="reveal">
+                <p class="s-eyebrow">Contact Us</p>
+                <h2 class="s-heading">Let's talk about responsible AI training</h2>
+                <p class="s-body">Whether you're exploring options for a graduate scheme, looking to train managers, or want to discuss a tailored programme, we'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Structured form -->
+                <form class="contact-form reveal reveal-delay-1" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organisation">Organisation</label>
+                        <input type="text" id="organisation" name="organisation">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" id="role" name="role">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm interested in...</label>
+                        <select id="interest" name="interest" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Graduate training">Graduate training</option>
+                            <option value="Manager training">Manager training</option>
+                            <option value="University partnership">University partnership</option>
+                            <option value="General enquiry">General enquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Enquiry</button>
+                    <div class="form-message" aria-live="polite"></div>
+                </form>
+
+                <!-- Right column -->
+                <div class="contact-alt reveal reveal-delay-2">
+                    <div class="contact-card">
+                        <h3>Book a call</h3>
+                        <p>Prefer to talk it through? Book a 30-minute introductory call to discuss your organisation's needs and how AIM can help.</p>
+                        <button type="button" class="btn-secondary" disabled style="opacity: 0.5; cursor: default;">Booking link coming soon</button>
+                    </div>
+
+                    <div class="contact-email">
+                        <p>Or email us directly:</p>
+                        <a href="mailto:hello@aim-coaching.co.uk">hello@aim-coaching.co.uk</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Programmes launching September 2026</h3>
+                        <p>We're currently working with organisations to prepare training for their 2026 graduate cohorts. Get in touch early to secure your place.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AIM | AI Management Coaching</p>
+        <span class="footer-strapline">Aim for better.</span>
+        <a href="mailto:hello@aim-coaching.co.uk">hello@aim-coaching.co.uk</a>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/reveal.js"></script>
+    <script src="../js/form.js"></script>
+
+</body>
+</html>
