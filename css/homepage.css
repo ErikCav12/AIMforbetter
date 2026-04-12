@@ -63,6 +63,17 @@
     font-weight: 300;
 }
 
+.hero-sub-block {
+    margin: 0 auto 2.75rem;
+    max-width: 620px;
+}
+.hero-sub-block .hero-sub {
+    margin-bottom: 1rem;
+}
+.hero-sub-block .hero-sub:last-child {
+    margin-bottom: 0;
+}
+
 .hero-sub {
     font-size: clamp(1.05rem, 1.8vw, 1.2rem);
     color: rgba(255,255,255,0.6);
