@@ -1,0 +1,24 @@
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Brain silhouette: rounded mushroom shape with cerebellum at base -->
+  <path d="M32 8
+           C24 8 18 13 17 19
+           C12 20 9 25 11 30
+           C8 33 9 39 13 41
+           C13 46 17 50 22 51
+           C23 54 27 56 32 56
+           C37 56 41 54 42 51
+           C47 50 51 46 51 41
+           C55 39 56 33 53 30
+           C55 25 52 20 47 19
+           C46 13 40 8 32 8 z"/>
+  <!-- Central fissure (groove between hemispheres) -->
+  <path d="M32 9 V56"/>
+  <!-- Left hemisphere folds (gentle curves) -->
+  <path d="M18 23 Q22 26 26 23"/>
+  <path d="M14 32 Q20 35 25 32"/>
+  <path d="M17 42 Q22 45 27 42"/>
+  <!-- Right hemisphere folds (mirrored) -->
+  <path d="M38 23 Q42 26 46 23"/>
+  <path d="M39 32 Q44 35 50 32"/>
+  <path d="M37 42 Q42 45 47 42"/>
+</svg>

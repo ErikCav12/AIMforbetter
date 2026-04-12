@@ -1,161 +1,225 @@
-/* ── Evidence page ── */
+/* ── Evidence page intro ── */
 .evidence-intro {
     text-align: center;
-    max-width: 680px;
+    max-width: 760px;
     margin: 0 auto;
 }
-
 .evidence-intro .s-body {
     margin: 0 auto;
     text-align: center;
 }
 
-/* ── Contrast pairs ── */
-.contrast-pairs {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+/* ── Sections ── */
+.ev-section {
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem);
+}
+.ev-section--info        { background: var(--blue-subtle); }
+.ev-section--neutral     { background: var(--white); }
+.ev-section--opportunity { background: var(--cream); }
+
+.ev-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.ev-section--opportunity .ev-eyebrow {
+    color: #8c6d2f;
 }
 
-.contrast-pair {
+.ev-action-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 920px;
+}
+
+/* ── Rows ── */
+.ev-row {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--border);
+    grid-template-columns: 1fr 2fr;
+    gap: 2.5rem;
+    align-items: start;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(25,25,89,0.08);
 }
-
-.contrast-pair:last-child {
+.ev-row:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.stat-card {
-    padding: 2rem 2.5rem;
+.ev-row-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-weight: 300;
+    padding-top: 0.5rem;
+}
+
+.ev-row-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.ev-row-source {
+    grid-column: 1 / -1;
+    margin-top: 0.75rem;
+    text-align: right;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+.ev-row-source a {
+    color: var(--text-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+}
+.ev-row-source a:hover {
+    color: var(--accent);
+}
+
+/* ── Stats ── */
+.ev-stat {
+    padding: 2rem 1.75rem;
     border-radius: 16px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    transition: transform 0.3s var(--ease);
 }
 
-.stat-card--positive {
+.ev-section--info .ev-stat {
+    background: var(--white);
+}
+.ev-section--neutral .ev-stat {
     background: var(--blue-subtle);
+    border-color: rgba(25,25,89,0.08);
+}
+.ev-section--opportunity .ev-stat {
+    background: var(--white);
+    border-color: rgba(140,109,47,0.18);
 }
 
-.stat-card--negative {
+/* Hero stat — visually larger */
+.ev-stat--hero {
+    box-shadow: 0 12px 40px rgba(25,25,89,0.06);
+}
+
+/* Risk stat — red palette, applied per-stat in red sections (2-5) */
+.ev-stat--risk {
     background: #fef5f5;
+    border-color: rgba(192,57,43,0.18);
 }
 
-.stat-card .counter {
+/* ── Figures ── */
+.ev-figure {
     font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 4vw, 3rem);
     color: var(--navy);
     line-height: 1;
     letter-spacing: -0.02em;
     display: block;
-    margin-bottom: 0.5rem;
 }
-
-.stat-card--negative .counter {
+.ev-stat--risk .ev-figure {
     color: #c0392b;
 }
+.ev-section--opportunity .ev-figure {
+    color: #8c6d2f;
+}
 
-.stat-card p {
-    font-size: 0.9rem;
+/* Figure prefix colour matches its parent stat */
+.ev-stat--risk .figure-prefix {
+    color: #c0392b;
+}
+.ev-section--opportunity .figure-prefix {
+    color: #8c6d2f;
+}
+
+/* Hero figure ~1.6× normal */
+.ev-stat--hero .ev-figure {
+    font-size: clamp(3rem, 5.6vw, 4.4rem);
+}
+
+/* Text-style figures (no number, e.g. "Pronounced", "Lowest scorers") */
+.ev-stat--text .ev-figure {
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    line-height: 1.2;
+}
+.ev-stat--hero.ev-stat--text .ev-figure {
+    font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+}
+
+.ev-stat-label {
+    font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.5;
     font-weight: 400;
 }
 
-.stat-card .stat-source {
-    font-size: 0.72rem;
-    color: var(--text-light);
-    margin-top: 0.75rem;
-    display: block;
-}
-
-.stat-card .stat-source a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-/* ── Divider between pairs ── */
-.contrast-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--border);
-    position: relative;
-}
-
-.contrast-divider::before {
-    content: 'vs';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    background: var(--white);
-    padding: 0.25rem 0.5rem;
-}
-
-/* ── Punchline ── */
-.evidence-punchline {
-    margin-top: 4rem;
-    padding: 4rem 3rem;
+/* ── Closing CTA ── */
+.ev-cta {
+    padding: clamp(5rem, 10vw, 7rem) clamp(1.5rem, 4vw, 4rem);
     background: var(--navy);
-    border-radius: 20px;
     text-align: center;
 }
-
-.evidence-punchline .counter {
+.ev-cta-text {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.85rem;
+}
+.ev-cta-headline {
     font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: var(--white);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    display: block;
-    margin-bottom: 1rem;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
 }
-
-.evidence-punchline p {
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 500px;
-    margin: 0 auto;
+.ev-cta-btn {
+    background: var(--white);
+    color: var(--navy);
 }
-
-.evidence-punchline .stat-source {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.3);
-    margin-top: 1.25rem;
-    display: block;
-}
-
-.evidence-punchline .stat-source a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: underline;
+.ev-cta-btn:hover {
+    background: rgba(255,255,255,0.92);
+    color: var(--navy);
 }
 
 /* ── Responsive ── */
 @media (max-width: 860px) {
-    .contrast-pair {
+    .ev-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 2rem 0;
+        gap: 1.5rem;
     }
-
-    .contrast-divider {
-        width: 100%;
-        margin: 0.5rem 0;
+    .ev-action-title {
+        margin-bottom: 2rem;
     }
+    .ev-row-text {
+        padding-top: 0;
+    }
+}
 
-    .evidence-punchline {
-        padding: 3rem 1.5rem;
+@media (max-width: 560px) {
+    .ev-row-stats {
+        grid-template-columns: 1fr;
+    }
+    .ev-stat--hero .ev-figure {
+        font-size: clamp(2.6rem, 9vw, 3.4rem);
     }
 }

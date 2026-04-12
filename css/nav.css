@@ -35,7 +35,10 @@
 .burger {
     width: 32px;
     height: 24px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     background: none;
     border: none;
     cursor: pointer;
@@ -45,28 +48,24 @@
 
 .burger span {
     display: block;
-    position: absolute;
-    left: 0;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background: var(--text);
     border-radius: 2px;
-    transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), top 0.35s var(--ease);
+    transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
 }
-
-.burger span:nth-child(1) { top: 0; }
-.burger span:nth-child(2) { top: 11px; }
-.burger span:nth-child(3) { top: 22px; }
 
 /* White burger on hero */
 .nav.hero-visible .burger span {
     background: var(--white);
 }
 
-/* Burger X state */
+/* Burger X state — translate to center and rotate.
+   Centre y = (24 - 3) / 2 = 10.5px from top.
+   Span 1 starts at y=0  → translateY(+10.5px)
+   Span 3 starts at y=21 → translateY(-10.5px) */
 .burger.open span:nth-child(1) {
-    top: 11px;
-    transform: rotate(45deg);
+    transform: translateY(10.5px) rotate(45deg);
 }
 
 .burger.open span:nth-child(2) {
@@ -74,14 +73,14 @@
 }
 
 .burger.open span:nth-child(3) {
-    top: 11px;
-    transform: rotate(-45deg);
+    transform: translateY(-10.5px) rotate(-45deg);
 }
 
 /* Always white when menu is open */
 .burger.open span {
     background: var(--white);
 }
+
 
 /* ── Full-screen overlay menu ── */
 .menu-overlay {
@@ -90,7 +89,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 150;
+    /* Must sit above .nav (z-index: 200) so .overlay-close inside this
+       overlay is actually clickable. With overlay below the nav, the nav
+       intercepts pointer events at the close button's coordinates and the
+       circle X appears decorative but does nothing. */
+    z-index: 250;
     background: var(--navy);
     display: flex;
     flex-direction: column;

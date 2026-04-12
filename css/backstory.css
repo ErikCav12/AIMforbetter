@@ -1,14 +1,22 @@
 /* ── Two voices layout ── */
+/* Subgrid lets the inner .voice elements share the parent's row tracks,
+   so the label / heading / intro / accordion / quote rows align horizontally
+   across both columns even when individual elements have different heights. */
 .voices-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: 4rem;
+    row-gap: 0;
     margin-top: 4rem;
 }
 
 .voice {
     position: relative;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / span 5;
+    row-gap: 0;
 }
 
 .voice-label {

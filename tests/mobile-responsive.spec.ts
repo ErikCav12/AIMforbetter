@@ -112,26 +112,26 @@ test('email form is usable on iPhone', async ({ browser }) => {
   await context.close();
 });
 
-// Evidence page contrast pairs stack on mobile
-test('evidence contrast pairs stack vertically on iPhone', async ({ browser }) => {
+// Evidence page stats stack vertically on mobile
+test('evidence stat rows stack vertically on iPhone', async ({ browser }) => {
   const context = await browser.newContext({ ...devices['iPhone 12'] });
   const page = await context.newPage();
   await page.goto(BASE + '/pages/evidence.html');
   await page.waitForLoadState('networkidle');
 
-  // Get first contrast pair's stat cards
-  const firstPair = page.locator('.contrast-pair').first();
-  const leftCard = firstPair.locator('.stat-card').first();
-  const rightCard = firstPair.locator('.stat-card').last();
+  // Get first ev-row's two stat cards
+  const firstRow = page.locator('.ev-row').first();
+  const firstStat = firstRow.locator('.ev-stat').first();
+  const secondStat = firstRow.locator('.ev-stat').last();
 
-  const leftBox = await leftCard.boundingBox();
-  const rightBox = await rightCard.boundingBox();
+  const firstBox = await firstStat.boundingBox();
+  const secondBox = await secondStat.boundingBox();
 
-  // On mobile, right card should be below left card (stacked), not beside it
-  expect(rightBox!.y).toBeGreaterThan(leftBox!.y + leftBox!.height - 10);
+  // On mobile (560px breakpoint), the two stats should stack vertically
+  expect(secondBox!.y).toBeGreaterThan(firstBox!.y + firstBox!.height - 10);
 
   await page.screenshot({
-    path: `${SCREENSHOT_DIR}/evidence-pairs-iphone12.png`,
+    path: `${SCREENSHOT_DIR}/evidence-stats-iphone12.png`,
     fullPage: true,
   });
 
