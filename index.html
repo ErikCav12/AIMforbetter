@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bundle.css?v=1774991013">
+    <link rel="stylesheet" href="css/bundle.css?v=1775000000">
 </head>
 <body>
 
     <!-- Nav -->
     <header class="nav hero-visible" id="nav">
-        <a href="index.html"><img src="logo-transparent.png" alt="AIM" class="nav-logo"></a>
+        <a href="index.html" class="nav-eyebrow-link">AI Management Coaching</a>
         <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -28,11 +28,11 @@
         <button class="overlay-close" id="overlay-close" aria-label="Close menu">X</button>
         <nav>
             <a href="index.html" class="active">Home</a>
-            <a href="pages/backstory.html">Our Backstory</a>
             <a href="pages/evidence.html">The Evidence</a>
             <a href="pages/solutions.html">Solutions &amp; Methods</a>
             <a href="pages/syllabus.html">Our Syllabus</a>
             <a href="pages/modules.html">Modules &amp; Packages</a>
+            <a href="pages/backstory.html">Our Backstory</a>
             <a href="pages/contact.html">Contact Us</a>
             <p class="menu-strapline">Aim for better.</p>
         </nav>
@@ -41,11 +41,13 @@
     <main>
 
     <!-- Hero -->
-    <section class="hero" id="hero">
+    <section class="hero hero--logo" id="hero">
         <div class="hero-content">
-            <p class="hero-eyebrow">AI Management Coaching</p>
-            <h1>Structured AI training that turns your graduates into professionals who use AI with judgement, not just speed</h1>
-            <p class="hero-sub">AIM teaches early-career professionals and their managers how to evaluate what AI produces, spot what it gets wrong, and use it responsibly at work.</p>
+            <img src="logo-transparent.png" alt="AIM" class="hero-logo">
+            <div class="hero-sub-block">
+                <p class="hero-sub">Coaching early-career professionals and their managers to use AI <strong>responsibly</strong>, and with <strong>good judgement</strong>.</p>
+                <p class="hero-sub">We empower employees with the practical methods and principles that help protect organisations from growing commercial, reputational and legal risks.</p>
+            </div>
             <form class="email-row" id="hero-form" data-message="hero-message">
                 <label for="hero-email" class="sr-only">Your work email</label>
                 <input type="email" id="hero-email" name="email" placeholder="Your work email" required>
@@ -62,24 +64,112 @@
         <div class="s-inner">
             <div class="reveal">
                 <p class="s-eyebrow">The Reality</p>
-                <h2 class="s-heading">AI adoption is outpacing the ability to use it well</h2>
+                <h2 class="s-heading">AI adoption is outpacing our ability to use it well</h2>
             </div>
             <div class="stats-strip">
                 <div class="stat-block reveal reveal-delay-1">
-                    <div class="stat-figure">70%</div>
-                    <p class="stat-label">of employees now use AI at work</p>
+                    <div class="stat-figure counter" data-target="70" data-suffix="%">0%</div>
+                    <p class="stat-label">of professional employees use AI at work</p>
                 </div>
                 <div class="stat-block reveal reveal-delay-2">
-                    <div class="stat-figure">66%</div>
-                    <p class="stat-label">rely on AI outputs without verifying accuracy</p>
+                    <span class="figure-prefix">up to</span>
+                    <div class="stat-figure counter" data-target="48" data-suffix="%">0%</div>
+                    <p class="stat-label">of AI outputs from complex or reasoning tasks are incorrect or misleading</p>
                 </div>
                 <div class="stat-block reveal reveal-delay-3">
-                    <div class="stat-figure">62%</div>
-                    <p class="stat-label">of Gen Z hide their AI use from colleagues</p>
+                    <div class="stat-figure">2/3</div>
+                    <p class="stat-label">of employees rely on AI outputs without checking their credibility or accuracy</p>
                 </div>
                 <div class="stat-block reveal reveal-delay-4">
-                    <div class="stat-figure">1 in 3</div>
-                    <p class="stat-label">have received any formal AI training</p>
+                    <div class="stat-figure">&gt;1/2</div>
+                    <p class="stat-label">acknowledge that mistakes have made their way into their work, admit to hiding their use of AI, and enter sensitive company information into publicly open AI tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Risks to Organisations -->
+    <section class="s s-risks" style="background: var(--blue-subtle);">
+        <div class="s-inner">
+            <div class="reveal">
+                <p class="s-eyebrow">The Risks to Organisations</p>
+                <h2 class="s-heading">This reality is creating emerging business risks that need to be managed</h2>
+                <p class="s-body">As AI becomes embedded within everyday workflows, organisations are encountering a new set of operational and professional risks with the potential to create significant commercial, reputational, and legal impact. The speed at which AI can generate content is often outpacing the development of consistent skills, controls, and expectations governing its appropriate use.</p>
+            </div>
+            <div class="risks-grid">
+                <button type="button" class="risk-tile reveal reveal-delay-1" aria-expanded="false" aria-controls="risk-1-detail" data-risk="1">
+                    <img src="assets/risks/risk-reliability.svg" alt="" class="risk-icon">
+                    <h3>Reduced reliability of work outputs</h3>
+                    <span class="risk-more">See more <span class="risk-chevron" aria-hidden="true">↓</span></span>
+                </button>
+                <button type="button" class="risk-tile reveal reveal-delay-2" aria-expanded="false" aria-controls="risk-2-detail" data-risk="2">
+                    <img src="assets/risks/risk-critical-thinking.svg" alt="" class="risk-icon">
+                    <h3>Over-reliance on AI limits development of critical thinking and due diligence skills</h3>
+                    <span class="risk-more">See more <span class="risk-chevron" aria-hidden="true">↓</span></span>
+                </button>
+                <button type="button" class="risk-tile reveal reveal-delay-3" aria-expanded="false" aria-controls="risk-3-detail" data-risk="3">
+                    <img src="assets/risks/risk-accountability.svg" alt="" class="risk-icon">
+                    <h3>Lack of accountability and limited visibility of AI use</h3>
+                    <span class="risk-more">See more <span class="risk-chevron" aria-hidden="true">↓</span></span>
+                </button>
+                <button type="button" class="risk-tile reveal reveal-delay-4" aria-expanded="false" aria-controls="risk-4-detail" data-risk="4">
+                    <img src="assets/risks/risk-confidentiality.svg" alt="" class="risk-icon">
+                    <h3>Exposure of confidential or proprietary information</h3>
+                    <span class="risk-more">See more <span class="risk-chevron" aria-hidden="true">↓</span></span>
+                </button>
+            </div>
+
+            <div class="risks-details">
+                <div id="risk-1-detail" class="risk-detail" data-risk="1" hidden>
+                    <div class="risk-detail-inner">
+                        <p>AI systems can produce convincing but incorrect information, incomplete analysis, or fabricated references. As AI becomes embedded within everyday workflows, there is increased risk that inaccurate or misleading content is incorporated into professional outputs without sufficient scrutiny. Because AI-generated material is often highly plausible, and becoming more convincing over time, errors may not be immediately obvious and can pass through quality assurance processes unnoticed.</p>
+                        <p>This creates potential <strong>commercial risk</strong> through flawed analysis or decision-making, <strong>reputational risk</strong> where incorrect information reaches clients or external stakeholders, and <strong>legal or regulatory risk</strong> where outputs fail to meet required standards of accuracy, disclosure, or professional diligence.</p>
+                    </div>
+                </div>
+                <div id="risk-2-detail" class="risk-detail" data-risk="2" hidden>
+                    <div class="risk-detail-inner">
+                        <p>Frequent reliance on AI-generated outputs without sufficient scrutiny can weaken independent judgement and problem-solving capability, particularly among early-career professionals still developing core skills. When AI is used without actively engaging in the underlying reasoning, opportunities to practise analytical thinking and challenge assumptions may be reduced. Over time, this can contribute to a widening skills gap, limiting confidence in critically evaluating outputs and applying appropriate due diligence.</p>
+                    </div>
+                </div>
+                <div id="risk-3-detail" class="risk-detail" data-risk="3" hidden>
+                    <div class="risk-detail-inner">
+                        <p>AI use is not always visible within organisations, with limited disclosure reducing transparency around where and how AI is influencing work outputs. When individuals do not clearly acknowledge their use of AI, accountability for the accuracy and quality of outputs can become less clear. This can make it more difficult to apply appropriate oversight, increasing the risk of inconsistent standards, reduced transparency, and errors going unidentified within AI-assisted work.</p>
+                    </div>
+                </div>
+                <div id="risk-4-detail" class="risk-detail" data-risk="4" hidden>
+                    <div class="risk-detail-inner">
+                        <p>Increased use of publicly available AI tools raises the possibility that commercially sensitive information is shared outside approved environments. This may include client data, intellectual property, commercially sensitive analysis, or internal strategy information.</p>
+                        <p>Without clear understanding of where AI can be used safely, organisations face heightened risk relating to <strong>data security, confidentiality, and regulatory compliance</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Concern About Gen Z -->
+    <section class="s">
+        <div class="s-inner">
+            <div class="reveal">
+                <p class="s-eyebrow">The Concern About Gen Z</p>
+                <h2 class="s-heading">Risks to the business and employee are pronounced among Gen Z</h2>
+            </div>
+            <div class="stats-strip">
+                <div class="stat-block reveal reveal-delay-1">
+                    <div class="stat-figure counter" data-target="54" data-suffix="%">0%</div>
+                    <p class="stat-label">of Gen Z use AI daily in their work, four times that of the average employee</p>
+                </div>
+                <div class="stat-block reveal reveal-delay-2">
+                    <div class="stat-figure counter" data-target="41" data-suffix="%">0%</div>
+                    <p class="stat-label">success rate at critically assessing and identifying AI shortfalls. Gen Z are the lowest scorers</p>
+                </div>
+                <div class="stat-block reveal reveal-delay-3">
+                    <span class="figure-prefix">up to</span>
+                    <div class="stat-figure counter" data-target="62" data-suffix="%">0%</div>
+                    <p class="stat-label">of employees born after 1997 hide their use of AI at work</p>
+                </div>
+                <div class="stat-block reveal reveal-delay-4">
+                    <div class="stat-figure">&gt;1/2</div>
+                    <p class="stat-label">of Gen Z professionals say generative AI skills are important for their career advancement</p>
                 </div>
             </div>
         </div>
@@ -90,24 +180,39 @@
         <div class="s-inner">
             <div class="reveal">
                 <p class="s-eyebrow">What We Do</p>
-                <h2 class="s-heading">Training for graduates, managers, and the way your teams work</h2>
-                <p class="s-body">Every programme covers three areas, each designed for different people in your organisation.</p>
+                <h2 class="s-heading">Specialist and targeted AI Management Coaching for your junior workforce, and their managers</h2>
+                <p class="s-body">Our training is <strong>AIMed towards mitigating the emerging risks to the business, and the employee</strong>. This gives organisations <strong>confidence</strong> that AI is being used responsibly, whilst <strong>promoting constructive learning and professional development</strong> in a key growth area.</p>
             </div>
             <div class="audience-row">
-                <div class="audience-card reveal reveal-delay-1">
-                    <span class="audience-icon" aria-hidden="true"></span>
-                    <h3>For your graduates</h3>
-                    <p>Learn to evaluate AI outputs, choose the right tools, and take ownership of the work AI helps produce.</p>
+                <button type="button" class="audience-tile reveal reveal-delay-1" aria-expanded="false" aria-controls="aud-1-detail" data-aud="1">
+                    <h3>For your Gen Z Workforce</h3>
+                    <span class="audience-more">See more <span class="audience-chevron" aria-hidden="true">↓</span></span>
+                </button>
+                <button type="button" class="audience-tile reveal reveal-delay-2" aria-expanded="false" aria-controls="aud-2-detail" data-aud="2">
+                    <h3>For your Managers</h3>
+                    <span class="audience-more">See more <span class="audience-chevron" aria-hidden="true">↓</span></span>
+                </button>
+                <button type="button" class="audience-tile reveal reveal-delay-3" aria-expanded="false" aria-controls="aud-3-detail" data-aud="3">
+                    <h3>For your Culture</h3>
+                    <span class="audience-more">See more <span class="audience-chevron" aria-hidden="true">↓</span></span>
+                </button>
+            </div>
+
+            <div class="audience-details">
+                <div id="aud-1-detail" class="audience-detail" data-aud="1" hidden>
+                    <div class="audience-detail-inner">
+                        <p>Focused on <strong>building capability</strong> in priority skillsets required for <strong>responsible AI use</strong>. Our training develops <strong>practical expertise and confidence</strong> to recognise AI limitations, critically evaluate and validate outputs, take accountability for AI-assisted work, and use AI to enhance, rather than replace, professional judgement.</p>
+                    </div>
                 </div>
-                <div class="audience-card reveal reveal-delay-2">
-                    <span class="audience-icon" aria-hidden="true"></span>
-                    <h3>For your managers</h3>
-                    <p>Gain visibility into AI-assisted workflows, streamline reviews, and set clear expectations without micromanaging.</p>
+                <div id="aud-2-detail" class="audience-detail" data-aud="2" hidden>
+                    <div class="audience-detail-inner">
+                        <p>Designed to <strong>empower managers to govern the rapid adoption of AI, and manage the junior workforce specific concerns</strong>. Our coaching helps managers to identify where AI introduces risk into early-career workflows, and to <strong>strengthen oversight without undermining trust</strong>. The training builds applied expertise to recognise characteristics of AI-generated content, identify signals of over-reliance, understand how AI is influencing day-to-day work production, and practical methods for how to use AI tools to enhance review processes.</p>
+                    </div>
                 </div>
-                <div class="audience-card reveal reveal-delay-3">
-                    <span class="audience-icon" aria-hidden="true"></span>
-                    <h3>For your culture</h3>
-                    <p>Make AI use something people talk about openly, not something they hide. Build shared standards your teams actually follow.</p>
+                <div id="aud-3-detail" class="audience-detail" data-aud="3" hidden>
+                    <div class="audience-detail-inner">
+                        <p>Intended to support organisations, employees and their managers in <strong>strengthening a transparent and responsible AI culture</strong>, improving visibility of AI use and reducing hidden risk. Our training reinforces shared expectations and clear boundaries for appropriate AI use, while promoting critical thinking and constructive challenge when working with AI-assisted outputs. It supports the normalisation of transparent and responsible AI use as professional best practice, helping embed consistent behaviours aligned with organisational standards.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,24 +223,29 @@
         <div class="s-inner">
             <div class="reveal">
                 <p class="s-eyebrow">Who We Are</p>
-                <h2 class="s-heading">Built from first-hand experience</h2>
-                <p class="s-body">AIM was founded by a husband-and-wife team who've seen the problem from both sides.</p>
+                <h2 class="s-heading">Built from First-Hand Experience, and a Passion to Make Positive Change</h2>
+                <p class="s-body who-we-are-intro">AIM was founded through a partnership who've seen the problem from both sides. We see the rapid adoption of AI, without the appropriate guardrails, as the <strong>single biggest risk facing modern organisations and the wider society</strong>.</p>
             </div>
             <div class="founders-row reveal">
                 <div class="founder">
                     <div class="founder-photo">E</div>
                     <div>
                         <h4>The Engineer</h4>
-                        <p>An engineer managing Gen Z professionals in a global consultancy. Accountable for every output his team delivers, in a workplace where AI is changing how that work gets done.</p>
+                        <p>An engineer managing Gen Z professionals in a global consultancy. Accountable for the outputs his team delivers, in a workplace where AI is changing how that work gets done.</p>
                     </div>
                 </div>
                 <div class="founder">
                     <div class="founder-photo">S</div>
                     <div>
                         <h4>The Sociologist</h4>
-                        <p>A sociologist and corporate training designer who has seen how powerful technologies can outpace our ability to use them responsibly.</p>
+                        <p>A sociologist and corporate training designer and deliverer who has seen how powerful technologies can outpace our ability to use them responsibly.</p>
                     </div>
                 </div>
+            </div>
+            <div class="reveal who-we-are-closing">
+                <p>We see how AI tools are becoming more and more powerful over time, and how difficult it's becoming to tell the difference between fact and fiction. We are on a mission to help businesses mitigate the risks of <strong>AI adoption outpacing our ability to use it well</strong>, pushing to <strong>raise awareness of our concerns</strong>, and committed to <strong>enabling individuals to protect themselves against these powerful technologies</strong>&hellip;while we still have the chance.</p>
+                <p class="who-we-are-mission">We AIM for trusted outputs. AIM for responsible AI use. AIM for better.</p>
+                <a href="pages/backstory.html" class="btn-secondary who-we-are-cta">Why we Care &rarr;</a>
             </div>
         </div>
     </section>
@@ -144,8 +254,8 @@
     <section class="final-cta" id="signup">
         <div class="reveal">
             <p class="s-eyebrow">Get Started</p>
-            <h2 class="s-heading">Be the first to know when programmes open</h2>
-            <p class="s-body">We're launching training for September 2026 graduate cohorts. Register your interest and we'll share details as they're confirmed.</p>
+            <h2 class="s-heading">Join Our Mission</h2>
+            <p class="s-body">We are rolling out our training programmes and supporting a wide range of professional corporations over the course of 2026. Please register your interest below, and we'd be delighted to discuss how we can assist you.</p>
             <form class="email-row" id="footer-form" data-message="footer-message">
                 <label for="footer-email" class="sr-only">Your work email</label>
                 <input type="email" id="footer-email" name="email" placeholder="Your work email" required>
@@ -162,10 +272,10 @@
     <footer>
         <p>&copy; 2026 AIM | AI Management Coaching</p>
         <span class="footer-strapline">Aim for better.</span>
-        <a href="mailto:hello@aim-coaching.co.uk">hello@aim-coaching.co.uk</a>
+        <a href="mailto:training@aimforbetter.co.uk">training@aimforbetter.co.uk</a>
     </footer>
 
-    <script src="js/bundle.js?v=1774991013"></script>
+    <script src="js/bundle.js?v=1775000000"></script>
 
 </body>
 </html>

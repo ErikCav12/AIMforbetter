@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Evidence | AIM</title>
-    <meta name="description" content="Data-backed evidence on AI adoption, error rates, and the training gap facing modern organisations.">
+    <meta name="description" content="Six independent studies on AI adoption, error rates, hidden use, data leaks and the training gap facing modern organisations.">
     <link rel="icon" href="../favicon.ico" sizes="32x32">
     <link rel="icon" href="../favicon.png" type="image/png">
     <script data-goatcounter="https://aim.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/bundle.css?v=1774991013">
+    <link rel="stylesheet" href="../css/bundle.css?v=1775100000">
 </head>
 <body>
 
@@ -28,11 +28,11 @@
         <button class="overlay-close" id="overlay-close" aria-label="Close menu">X</button>
         <nav>
             <a href="../index.html">Home</a>
-            <a href="backstory.html">Our Backstory</a>
             <a href="evidence.html" class="active">The Evidence</a>
             <a href="solutions.html">Solutions &amp; Methods</a>
             <a href="syllabus.html">Our Syllabus</a>
             <a href="modules.html">Modules &amp; Packages</a>
+            <a href="backstory.html">Our Backstory</a>
             <a href="contact.html">Contact Us</a>
             <p class="menu-strapline">Aim for better.</p>
         </nav>
@@ -40,86 +40,192 @@
 
     <main>
 
-    <!-- Page content -->
-    <section class="s" style="padding-top: 8rem;">
+    <!-- Page intro -->
+    <section class="s" style="padding-top: 8rem; padding-bottom: 4rem;">
         <div class="s-inner">
             <div class="evidence-intro reveal">
                 <p class="s-eyebrow">The Evidence</p>
-                <h2 class="s-heading">The numbers tell the story</h2>
-                <p class="s-body">AI is transforming how work gets done. But adoption is dramatically outpacing the ability to use it responsibly. Here's what the data shows.</p>
+                <h2 class="s-heading">The case for AI training isn't an opinion</h2>
+                <p class="s-body">Six independent studies &mdash; from PwC, KPMG, Deloitte, EY, the LSE and others &mdash; show the same thing: AI adoption has outrun the skills to use it safely. Here's what they found.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 01 — AI Usage in the Workplace (info, blue) -->
+    <section class="ev-section ev-section--info">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">01 &middot; AI Usage in the Workplace</p>
+            <h2 class="ev-action-title reveal">AI is already everywhere, and Gen Z is using it 4&times; more than anyone else</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">AI adoption is already high across the general working population.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="70" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">use AI in the workplace</p>
+                    </div>
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="33" data-suffix="%" data-prefix="~">~0%</span>
+                        <p class="ev-stat-label">of day-to-day tasks now use AI</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Source: <a href="https://www.cfobrew.com/stories/2025/10/30/ai-s-generation-gap" target="_blank" rel="noopener">LSE 2025</a></p>
             </div>
 
-            <div class="contrast-pairs">
-
-                <!-- Pair 1: Usage vs Training -->
-                <div class="contrast-pair">
-                    <div class="stat-card stat-card--positive slide-in-left">
-                        <span class="counter" data-target="70" data-suffix="%">0%</span>
-                        <p>of employees now use AI at work, applying it to 31% of day-to-day tasks</p>
-                        <span class="stat-source"><a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/pwc-2025-global-workforce-survey.html" target="_blank" rel="noopener">PwC 2025 Global Workforce Survey</a></span>
+            <div class="ev-row reveal">
+                <div class="ev-row-text">AI adoption rates are growing quickly, and will continue to grow over the coming years.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="2" data-suffix="&times;">0&times;</span>
+                        <p class="ev-stat-label">growth in workplace AI use over the past two years</p>
                     </div>
-                    <div class="contrast-divider"></div>
-                    <div class="stat-card stat-card--negative slide-in-right">
-                        <span class="counter" data-target="33" data-suffix="%" data-prefix="~">0%</span>
-                        <p>have received any formal training on how to use AI effectively</p>
-                        <span class="stat-source"><a href="https://www.cfobrew.com/stories/2025/10/30/ai-s-generation-gap" target="_blank" rel="noopener">CFO Brew / LSE Survey 2025</a></span>
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="77" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">of employers plan to reskill employees by 2030</p>
                     </div>
                 </div>
-
-                <!-- Pair 2: Gen Z adoption vs hidden use -->
-                <div class="contrast-pair">
-                    <div class="stat-card stat-card--positive slide-in-left">
-                        <span class="counter" data-target="54" data-suffix="%">0%</span>
-                        <p>of Gen Z use AI daily, four times the rate of the wider workforce</p>
-                        <span class="stat-source"><a href="https://wiingy.com/research/gen-z-ai-usage-global-survey/" target="_blank" rel="noopener">Wiingy Gen Z AI Usage Survey</a></span>
-                    </div>
-                    <div class="contrast-divider"></div>
-                    <div class="stat-card stat-card--negative slide-in-right">
-                        <span class="counter" data-target="62" data-suffix="%">0%</span>
-                        <p>of Gen Z workers hide their AI use from colleagues</p>
-                        <span class="stat-source"><a href="https://coai.com/news/62-of-gen-z-workers-hide-their-ai-usage-from-colleagues-says-survey/" target="_blank" rel="noopener">CoAI Survey 2025</a></span>
-                    </div>
-                </div>
-
-                <!-- Pair 3: Time saved vs no verification -->
-                <div class="contrast-pair">
-                    <div class="stat-card stat-card--positive slide-in-left">
-                        <span class="counter" data-target="7.5" data-suffix=" hrs" data-decimals="1">0 hrs</span>
-                        <p>saved per week on average by employees using AI tools</p>
-                        <span class="stat-source"><a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/pwc-2025-global-workforce-survey.html" target="_blank" rel="noopener">PwC 2025 Global Workforce Survey</a></span>
-                    </div>
-                    <div class="contrast-divider"></div>
-                    <div class="stat-card stat-card--negative slide-in-right">
-                        <span class="counter" data-target="66" data-suffix="%">0%</span>
-                        <p>rely on AI outputs without consistently verifying accuracy</p>
-                        <span class="stat-source"><a href="https://kpmg.com/xx/en/media/press-releases/2025/04/trust-of-ai-remains-a-critical-challenge.html" target="_blank" rel="noopener">KPMG Trust in AI 2025</a></span>
-                    </div>
-                </div>
-
-                <!-- Pair 4: Shadow AI -->
-                <div class="contrast-pair">
-                    <div class="stat-card stat-card--positive slide-in-left">
-                        <span class="counter" data-target="68" data-suffix="%">0%</span>
-                        <p>of employees access AI through personal accounts, not company-approved systems</p>
-                        <span class="stat-source"><a href="https://www.techmonitor.ai/digital-economy/ai-and-automation/57-enterprise-employees-input-confidential-data-ai-tools" target="_blank" rel="noopener">Tech Monitor 2025</a></span>
-                    </div>
-                    <div class="contrast-divider"></div>
-                    <div class="stat-card stat-card--negative slide-in-right">
-                        <span class="counter" data-target="57" data-suffix="%">0%</span>
-                        <p>of enterprise employees have input confidential data into AI tools</p>
-                        <span class="stat-source"><a href="https://www.techmonitor.ai/digital-economy/ai-and-automation/57-enterprise-employees-input-confidential-data-ai-tools" target="_blank" rel="noopener">Tech Monitor 2025</a></span>
-                    </div>
-                </div>
-
+                <p class="ev-row-source">Sources: Gallup 2025 &middot; World Economic Forum 2025</p>
             </div>
 
-            <!-- Punchline -->
-            <div class="evidence-punchline reveal">
-                <span class="counter" data-target="1" data-suffix=" in 3">0 in 3</span>
-                <p>That's how many employees have received any formal AI training. The tools are everywhere. The skills to use them responsibly are not.</p>
-                <span class="stat-source"><a href="https://www.cfobrew.com/stories/2025/10/30/ai-s-generation-gap" target="_blank" rel="noopener">CFO Brew / London School of Economics 2025</a></span>
+            <div class="ev-row reveal">
+                <div class="ev-row-text">There is a strong bias for AI utilisation amongst Gen Z.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat ev-stat--hero">
+                        <span class="ev-figure counter" data-target="4" data-suffix="&times;">0&times;</span>
+                        <p class="ev-stat-label">higher adoption among Gen Z than the average professional</p>
+                    </div>
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="54" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">of Gen Z use AI daily, vs 14% of the wider workforce</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Sources: <a href="https://wiingy.com/research/gen-z-ai-usage-global-survey/" target="_blank" rel="noopener">Wiingy 2025</a> &middot; <a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/pwc-2025-global-workforce-survey.html" target="_blank" rel="noopener">PwC 2025</a></p>
             </div>
+        </div>
+    </section>
 
+    <!-- Section 02 — Error rate (red hero) -->
+    <section class="ev-section ev-section--neutral">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">02 &middot; The Error Rate in Generative AI</p>
+            <h2 class="ev-action-title reveal">For complex tasks, almost half of AI's answers are wrong</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">AI models often generate incorrect or misleading information. The error rate climbs sharply on anything that requires reasoning.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="9" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">hallucination rate on general knowledge questions</p>
+                    </div>
+                    <div class="ev-stat ev-stat--hero ev-stat--risk">
+                        <span class="ev-figure">30&ndash;48%</span>
+                        <p class="ev-stat-label">on complex or reasoning-based tasks</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Source: AI Hallucinations Index 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03 — Mistakes -->
+    <section class="ev-section ev-section--neutral">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">03 &middot; The Mistakes Being Made</p>
+            <h2 class="ev-action-title reveal">Two thirds don't verify AI's work. Most know it's already hurt them.</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">Without proper verification and due diligence, AI-generated errors are slipping through the net into professional work.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat ev-stat--hero ev-stat--risk">
+                        <span class="ev-figure counter" data-target="66" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">rely on AI outputs without consistently checking them</p>
+                    </div>
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="56" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">acknowledge mistakes have already made it into their work</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Source: <a href="https://kpmg.com/xx/en/media/press-releases/2025/04/trust-of-ai-remains-a-critical-challenge.html" target="_blank" rel="noopener">KPMG 2025</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04 — Visibility -->
+    <section class="ev-section ev-section--neutral">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">04 &middot; The Lack of Visibility on AI Use</p>
+            <h2 class="ev-action-title reveal">AI use is invisible, especially among the workers most likely to use it</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">You saw they use AI four times more. Now see what they don't tell you. AI use is happening without clear visibility, and Gen Z hide it more than anyone.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat ev-stat--text">
+                        <span class="ev-figure">Pronounced</span>
+                        <p class="ev-stat-label">under-reporting and concealment of AI use among Gen Z professionals</p>
+                    </div>
+                    <div class="ev-stat ev-stat--hero ev-stat--risk">
+                        <span class="figure-prefix">up to</span>
+                        <span class="ev-figure counter" data-target="62" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">of employees born after 1997 hide their use of AI at work</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Source: <a href="https://coai.com/news/62-of-gen-z-workers-hide-their-ai-usage-from-colleagues-says-survey/" target="_blank" rel="noopener">CoAI 2025</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05 — Information leaks -->
+    <section class="ev-section ev-section--neutral">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">05 &middot; Sensitive Company Information Leaks</p>
+            <h2 class="ev-action-title reveal">Confidential data is leaving the building, one prompt at a time</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">Many individuals are inputting sensitive company information into publicly available AI systems, rather than using approved internal tools.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="68" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">access generative AI through personal accounts, not company-approved systems</p>
+                    </div>
+                    <div class="ev-stat ev-stat--hero ev-stat--risk">
+                        <span class="ev-figure counter" data-target="57" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">of enterprise employees admit to entering sensitive or high-risk information</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Source: <a href="https://www.techmonitor.ai/digital-economy/ai-and-automation/57-enterprise-employees-input-confidential-data-ai-tools" target="_blank" rel="noopener">Tech Monitor 2025</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06 — Need for training (cream + gold, opportunity) -->
+    <section class="ev-section ev-section--opportunity">
+        <div class="s-inner">
+            <p class="ev-eyebrow reveal">06 &middot; The Need and Demand for AI Management Training</p>
+            <h2 class="ev-action-title reveal">The workers most exposed are the ones asking for help</h2>
+
+            <div class="ev-row reveal">
+                <div class="ev-row-text">The desire and requirement for structured training in responsible AI use is becoming increasingly clear, especially among Gen Z.</div>
+                <div class="ev-row-stats">
+                    <div class="ev-stat ev-stat--hero ev-stat--text">
+                        <span class="ev-figure">Lowest scorers</span>
+                        <p class="ev-stat-label">Gen Z achieve only a 41% success rate at critically evaluating AI outputs</p>
+                    </div>
+                    <div class="ev-stat">
+                        <span class="ev-figure counter" data-target="59" data-suffix="%">0%</span>
+                        <p class="ev-stat-label">of Gen Z say generative AI skills are important for their career advancement</p>
+                    </div>
+                </div>
+                <p class="ev-row-source">Sources: EY 2024 &middot; Deloitte 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="ev-cta">
+        <div class="s-inner reveal">
+            <p class="ev-cta-text">The data is unambiguous. The skills aren't optional.</p>
+            <h2 class="ev-cta-headline">Here's how AIM closes the gap.</h2>
+            <a href="solutions.html" class="btn-primary ev-cta-btn">See our solutions &rarr;</a>
         </div>
     </section>
 
@@ -129,10 +235,10 @@
     <footer>
         <p>&copy; 2026 AIM | AI Management Coaching</p>
         <span class="footer-strapline">Aim for better.</span>
-        <a href="mailto:hello@aim-coaching.co.uk">hello@aim-coaching.co.uk</a>
+        <a href="mailto:training@aimforbetter.co.uk">training@aimforbetter.co.uk</a>
     </footer>
 
-    <script src="../js/bundle.js?v=1774991013"></script>
+    <script src="../js/bundle.js?v=1775100000"></script>
 
 </body>
 </html>

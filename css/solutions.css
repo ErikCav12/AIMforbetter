@@ -1,6 +1,6 @@
 /* ── Solutions page ── */
 .solutions-intro {
-    max-width: 700px;
+    /* full container width — matches headings and grids below */
 }
 
 .solutions-intro .s-body {

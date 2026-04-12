@@ -1,6 +1,6 @@
 /* ── Syllabus page ── */
 .syllabus-intro {
-    max-width: 700px;
+    /* full container width — matches headings and grids below */
 }
 
 /* ── Delivery formats grid ── */
