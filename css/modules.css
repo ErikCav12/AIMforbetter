@@ -14,7 +14,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(61,90,239,0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(80,80,120,0.2) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .module-number {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.25rem;
     color: var(--accent);
     opacity: 0.5;
@@ -150,7 +150,7 @@
 }
 
 .tt-module-number {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.25rem;
     color: rgba(255,255,255,0.3);
     flex-shrink: 0;
@@ -185,7 +185,7 @@
 }
 
 .tt-time {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 0.95rem;
     color: var(--navy);
     padding-top: 0.15rem;

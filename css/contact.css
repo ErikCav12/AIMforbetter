@@ -7,6 +7,39 @@
     align-items: start;
 }
 
+/* Contact details block (phone + address) */
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.contact-detail-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+}
+
+.contact-detail a,
+.contact-detail-value {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    color: var(--navy);
+    text-decoration: underline;
+}
+
 /* ── Structured form ── */
 .contact-form {
     display: flex;

@@ -52,7 +52,7 @@
 
 .o-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(25,25,89,0.06);
+    box-shadow: 0 12px 40px rgba(19,7,93,0.06);
 }
 
 .o-card h3 {
@@ -172,7 +172,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.3rem;
     color: var(--navy);
     text-align: left;
@@ -187,7 +187,7 @@
 
 .accordion-trigger::after {
     content: '+';
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--text-light);
@@ -225,7 +225,7 @@
 
 /* Nested accordions */
 .accordion-inner .accordion-trigger {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 500;
     padding: 1rem 0;
@@ -257,12 +257,21 @@ footer a {
 
 footer a:hover { color: var(--navy); }
 
-.footer-strapline {
-    font-size: 0.72rem;
+.footer-taglines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-light);
+    line-height: 1.2;
+}
+
+.footer-taglines span:last-child {
+    color: var(--navy);
 }
 
 /* ── Responsive ── */
