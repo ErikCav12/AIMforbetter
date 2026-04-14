@@ -20,23 +20,6 @@
     pointer-events: none;
 }
 
-/* Brand-pack feather ornament in top-right and bottom-left of hero */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 90px;
-    right: 40px;
-    width: 220px;
-    height: 110px;
-    background-image: url('../assets/brand/feather-ornament.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.18;
-    filter: invert(1);
-    pointer-events: none;
-    z-index: 0;
-}
-
 .hero-content {
     max-width: 760px;
     text-align: center;
@@ -159,12 +142,24 @@
 }
 
 /* ── Audience tiles (expandable, matches Risks pattern) ── */
+/* Interleaved tile+detail siblings with explicit grid placement.
+   Desktop: 3 tiles in row 1, active detail in row 2 full-width.
+   Mobile: auto-flow so detail appears directly after its tile. */
 .audience-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3.5rem;
     align-items: stretch;
+}
+
+/* Desktop: 3 tiles in row 1, active detail in row 2 full-width */
+.audience-tile[data-aud="1"] { grid-column: 1; grid-row: 1; }
+.audience-tile[data-aud="2"] { grid-column: 2; grid-row: 1; }
+.audience-tile[data-aud="3"] { grid-column: 3; grid-row: 1; }
+.audience-detail {
+    grid-column: 1 / -1;
+    grid-row: 2;
 }
 
 .audience-tile {
@@ -223,10 +218,6 @@
 
 .audience-tile[aria-expanded="true"] .audience-chevron {
     transform: rotate(180deg);
-}
-
-.audience-details {
-    margin-top: 1.5rem;
 }
 
 .audience-detail {
@@ -300,12 +291,27 @@
 }
 
 /* ── Risks grid ── */
+/* Tiles and details are interleaved siblings. Explicit grid-column/row
+   placement on desktop and tablet keeps tiles in their row and drops
+   the active detail into a full-width row directly below the tile's row.
+   On mobile the placement resets to auto-flow so each detail appears
+   right after the tile that was tapped (source-order based). */
 .risks-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 3.5rem;
     align-items: stretch;
+}
+
+/* Desktop: 4 tiles in row 1, active detail in row 2 full-width */
+.risk-tile[data-risk="1"] { grid-column: 1; grid-row: 1; }
+.risk-tile[data-risk="2"] { grid-column: 2; grid-row: 1; }
+.risk-tile[data-risk="3"] { grid-column: 3; grid-row: 1; }
+.risk-tile[data-risk="4"] { grid-column: 4; grid-row: 1; }
+.risk-detail {
+    grid-column: 1 / -1;
+    grid-row: 2;
 }
 
 .risk-tile {
@@ -370,10 +376,6 @@
 
 .risk-tile[aria-expanded="true"] .risk-chevron {
     transform: rotate(180deg);
-}
-
-.risks-details {
-    margin-top: 1.5rem;
 }
 
 .risk-detail {
@@ -456,25 +458,6 @@
     background: var(--navy);
     text-align: center;
     padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 4vw, 4rem);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Brand-pack feather ornament, bottom-left corner */
-.final-cta::before {
-    content: '';
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    width: 180px;
-    height: 90px;
-    background-image: url('../assets/brand/feather-ornament.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.15;
-    filter: invert(1);
-    pointer-events: none;
-    transform: scaleX(-1);
 }
 
 .final-cta .s-eyebrow { color: rgba(255,255,255,0.3); }
@@ -523,6 +506,32 @@
         gap: 1rem;
     }
 
+    /* Tablet: 2x2 tiles. Tiles 1-2 in row 1, detail of tile 1 or 2 in row 2.
+       Tiles 3-4 in row 3, detail of tile 3 or 4 in row 4. */
+    .risk-tile[data-risk="1"] { grid-column: 1; grid-row: 1; }
+    .risk-tile[data-risk="2"] { grid-column: 2; grid-row: 1; }
+    .risk-tile[data-risk="3"] { grid-column: 1; grid-row: 3; }
+    .risk-tile[data-risk="4"] { grid-column: 2; grid-row: 3; }
+    .risk-detail[data-risk="1"],
+    .risk-detail[data-risk="2"] {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    .risk-detail[data-risk="3"],
+    .risk-detail[data-risk="4"] {
+        grid-column: 1 / -1;
+        grid-row: 4;
+    }
+
+    /* Audience: stack to 1 column, reset grid placement to auto-flow */
+    .audience-tile[data-aud="1"],
+    .audience-tile[data-aud="2"],
+    .audience-tile[data-aud="3"],
+    .audience-detail {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
     .risk-detail-inner {
         padding: 1.5rem 1.5rem;
     }
@@ -539,5 +548,20 @@
 
     .risks-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Mobile: reset explicit grid placement so interleaved source order
+       takes over. Detail appears directly after its tapped tile. */
+    .risk-tile[data-risk="1"],
+    .risk-tile[data-risk="2"],
+    .risk-tile[data-risk="3"],
+    .risk-tile[data-risk="4"],
+    .risk-detail,
+    .risk-detail[data-risk="1"],
+    .risk-detail[data-risk="2"],
+    .risk-detail[data-risk="3"],
+    .risk-detail[data-risk="4"] {
+        grid-column: auto;
+        grid-row: auto;
     }
 }
