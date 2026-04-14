@@ -30,7 +30,7 @@
 }
 
 .ev-action-title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.8rem, 3.4vw, 2.4rem);
     color: var(--navy);
     line-height: 1.2;
@@ -48,7 +48,7 @@
     align-items: start;
     padding-bottom: 2.5rem;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(25,25,89,0.08);
+    border-bottom: 1px solid rgba(19,7,93,0.08);
 }
 .ev-row:last-child {
     border-bottom: none;
@@ -108,7 +108,7 @@
 }
 .ev-section--neutral .ev-stat {
     background: var(--blue-subtle);
-    border-color: rgba(25,25,89,0.08);
+    border-color: rgba(19,7,93,0.08);
 }
 .ev-section--opportunity .ev-stat {
     background: var(--white);
@@ -117,7 +117,7 @@
 
 /* Hero stat — visually larger */
 .ev-stat--hero {
-    box-shadow: 0 12px 40px rgba(25,25,89,0.06);
+    box-shadow: 0 12px 40px rgba(19,7,93,0.06);
 }
 
 /* Risk stat — red palette, applied per-stat in red sections (2-5) */
@@ -128,7 +128,7 @@
 
 /* ── Figures ── */
 .ev-figure {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(2.2rem, 4vw, 3rem);
     color: var(--navy);
     line-height: 1;
@@ -176,6 +176,24 @@
     padding: clamp(5rem, 10vw, 7rem) clamp(1.5rem, 4vw, 4rem);
     background: var(--navy);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brand-pack feather ornament, top-right corner */
+.ev-cta::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 180px;
+    height: 90px;
+    background-image: url('../assets/brand/feather-ornament.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    filter: invert(1);
+    pointer-events: none;
 }
 .ev-cta-text {
     font-size: 0.95rem;
@@ -184,7 +202,7 @@
     margin-bottom: 0.85rem;
 }
 .ev-cta-headline {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
     color: var(--white);
     line-height: 1.2;

@@ -27,9 +27,9 @@
 .nav-logo:hover { opacity: 0.8; }
 
 /* ── Hero-aware nav states ── */
-.nav.hero-visible .nav-logo {
-    filter: brightness(0) invert(1);
-}
+/* Note: nav-logo no longer needs a filter. The native-colour
+   aim-wordmark.svg renders correctly on the white sub-page nav states,
+   and the home page uses a text eyebrow instead of a logo image. */
 
 /* ── Burger icon ── */
 .burger {
@@ -119,7 +119,7 @@
 }
 
 .menu-overlay nav a {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.5rem, 3.5vw, 2rem);
     color: rgba(255,255,255,0.6);
     text-decoration: none;
@@ -164,7 +164,7 @@ body.menu-open .nav {
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
     color: rgba(255,255,255,0.7);
