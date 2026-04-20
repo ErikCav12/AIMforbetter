@@ -9,6 +9,24 @@
     text-align: center;
 }
 
+.ev-hero-eyebrow,
+.ev-hero-heading {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+}
+
+.ev-hero-eyebrow {
+    margin-bottom: 0.25rem;
+}
+
+.ev-hero-heading {
+    margin-bottom: 1.5rem;
+}
+
 /* ── Sections ── */
 .ev-section {
     padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem);
@@ -18,15 +36,12 @@
 .ev-section--opportunity { background: var(--cream); }
 
 .ev-eyebrow {
-    font-size: 0.72rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-blue);
     margin-bottom: 1rem;
-}
-.ev-section--opportunity .ev-eyebrow {
-    color: #8c6d2f;
 }
 
 .ev-action-title {
@@ -69,6 +84,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     align-items: stretch;
+}
+
+.ev-row-stats--single {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
 }
 
 .ev-row-source {
@@ -138,21 +159,16 @@
 .ev-stat--risk .ev-figure {
     color: #c0392b;
 }
-.ev-section--opportunity .ev-figure {
-    color: #8c6d2f;
-}
-
 /* Figure prefix colour matches its parent stat */
 .ev-stat--risk .figure-prefix {
     color: #c0392b;
 }
-.ev-section--opportunity .figure-prefix {
-    color: #8c6d2f;
-}
 
-/* Hero figure ~1.6× normal */
+/* Hero figure — bolder weight to anchor the section; kept close in size to the
+   non-hero figure so longer values like "30–48%" don't wrap to two lines. */
 .ev-stat--hero .ev-figure {
-    font-size: clamp(3rem, 5.6vw, 4.4rem);
+    font-size: clamp(2.6rem, 4.6vw, 3.6rem);
+    font-weight: 700;
 }
 
 /* Text-style figures (no number, e.g. "Pronounced", "Lowest scorers") */

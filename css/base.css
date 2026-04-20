@@ -28,6 +28,7 @@
     --cream: #f0f0f0;           /* brand light grey, formerly #f9f9f7 */
     --accent: #505078;          /* brand slate replaces #3d5aef */
     --accent-hover: #3f3f60;
+    --accent-blue: #0058a3;     /* arrow accent blue — confirm hex with Molly */
 
     /* Text */
     --text: #1a1a2e;
@@ -95,11 +96,11 @@ a {
 }
 
 .s-eyebrow {
-    font-size: 0.72rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-blue);
     margin-bottom: 1rem;
 }
 
@@ -117,6 +118,23 @@ a {
     line-height: 1.75;
     font-weight: 300;
 }
+
+.s-body--italic {
+    font-style: italic;
+}
+
+.s-body--italic + .s-body--italic {
+    margin-top: 1rem;
+}
+
+/* ── Inline link in body copy ── */
+.inline-link {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+}
+.inline-link:hover { opacity: 0.8; }
 
 /* ── Generic figure prefix (e.g. "up to" before a big stat) ── */
 .figure-prefix {

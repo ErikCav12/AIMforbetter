@@ -28,6 +28,7 @@
     --cream: #f0f0f0;           /* brand light grey, formerly #f9f9f7 */
     --accent: #505078;          /* brand slate replaces #3d5aef */
     --accent-hover: #3f3f60;
+    --accent-blue: #0058a3;     /* arrow accent blue — confirm hex with Molly */
 
     /* Text */
     --text: #1a1a2e;
@@ -95,11 +96,11 @@ a {
 }
 
 .s-eyebrow {
-    font-size: 0.72rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-blue);
     margin-bottom: 1rem;
 }
 
@@ -117,6 +118,23 @@ a {
     line-height: 1.75;
     font-weight: 300;
 }
+
+.s-body--italic {
+    font-style: italic;
+}
+
+.s-body--italic + .s-body--italic {
+    margin-top: 1rem;
+}
+
+/* ── Inline link in body copy ── */
+.inline-link {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+}
+.inline-link:hover { opacity: 0.8; }
 
 /* ── Generic figure prefix (e.g. "up to" before a big stat) ── */
 .figure-prefix {
@@ -157,8 +175,18 @@ a {
 }
 
 .nav-logo {
-    height: 32px;
+    /* 40px so the wordmark is the visual anchor of the banner */
+    height: 40px;
+    display: block;
     transition: opacity 0.2s;
+}
+
+/* Ensure the anchor wrapping the logo vertically centres inside the nav
+   and doesn't introduce extra baseline whitespace from inline layout. */
+.nav a:has(> .nav-logo) {
+    display: flex;
+    align-items: center;
+    line-height: 0;
 }
 
 .nav-logo:hover { opacity: 0.8; }
@@ -169,9 +197,12 @@ a {
    and the home page uses a text eyebrow instead of a logo image. */
 
 /* ── Burger icon ── */
+/* Sized for visual parity with the .nav-logo (28px tall). Three 2px lines
+   with matching gaps fill a 28px box and read with similar weight to the
+   wordmark beside it. */
 .burger {
     width: 32px;
-    height: 24px;
+    height: 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -186,7 +217,7 @@ a {
 .burger span {
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background: var(--text);
     border-radius: 2px;
     transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
@@ -198,11 +229,11 @@ a {
 }
 
 /* Burger X state — translate to center and rotate.
-   Centre y = (24 - 3) / 2 = 10.5px from top.
-   Span 1 starts at y=0  → translateY(+10.5px)
-   Span 3 starts at y=21 → translateY(-10.5px) */
+   Centre y = (28 - 2) / 2 = 13px from top.
+   Span 1 starts at y=0  → translateY(+13px)
+   Span 3 starts at y=26 → translateY(-13px) */
 .burger.open span:nth-child(1) {
-    transform: translateY(10.5px) rotate(45deg);
+    transform: translateY(13px) rotate(45deg);
 }
 
 .burger.open span:nth-child(2) {
@@ -210,7 +241,7 @@ a {
 }
 
 .burger.open span:nth-child(3) {
-    transform: translateY(-10.5px) rotate(-45deg);
+    transform: translateY(-13px) rotate(-45deg);
 }
 
 /* Always white when menu is open */
@@ -552,13 +583,22 @@ body.menu-open .nav {
 }
 
 /* ── Footer ── */
+/* Border spans full width. Three-column grid (`1fr auto 1fr`) pins the centre
+   taglines on the true page centre while letting the left and right blocks
+   extend out toward the viewport edges with only page-level gutter padding. */
 footer {
-    padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding-block: 2.5rem;
+    padding-inline: clamp(1.5rem, 4vw, 4rem);
     border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
 }
+
+footer > *:first-child  { justify-self: start; }
+footer > *:nth-child(2) { justify-self: center; text-align: center; }
+footer > *:last-child   { justify-self: end; }
 
 footer p,
 footer a {
@@ -590,6 +630,52 @@ footer a:hover { color: var(--navy); }
     color: var(--navy);
 }
 
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+}
+
+.footer-meta p {
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+/* ── Legal page body (privacy, terms) ── */
+.legal-body {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    font-size: 0.98rem;
+}
+
+.legal-body p { margin-bottom: 1rem; }
+.legal-body ul { margin: 0 0 1.25rem 1.25rem; }
+.legal-body li { margin-bottom: 0.4rem; line-height: 1.65; }
+
+.legal-body h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    color: var(--navy);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.legal-body h4 {
+    color: var(--navy);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.5rem;
+}
+
+.legal-body a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+.legal-body a:hover { opacity: 0.8; }
+
 /* ── Responsive ── */
 @media (max-width: 860px) {
     .email-row {
@@ -597,10 +683,23 @@ footer a:hover { color: var(--navy); }
         gap: 0.75rem;
     }
 
+    /* Stack the footer vertically on narrow viewports. Override the desktop
+       `grid-template-columns: 1fr auto 1fr` so the three blocks flow down
+       the page instead of being crushed into narrow columns. */
     footer {
-        flex-direction: column;
-        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
         text-align: center;
+    }
+
+    footer > *:first-child,
+    footer > *:nth-child(2),
+    footer > *:last-child {
+        justify-self: center;
+    }
+
+    .footer-meta {
+        align-items: center;
     }
 }
 /* ── Scroll reveal ── */
@@ -775,24 +874,10 @@ footer a:hover { color: var(--navy); }
     font-weight: 300;
 }
 
-/* Nav eyebrow text (home page only — replaces logo image) */
-.nav-eyebrow-link {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.25s var(--ease), opacity 0.2s;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.nav.hero-visible .nav-eyebrow-link {
-    color: rgba(255,255,255,0.7);
-}
-
-.nav-eyebrow-link:hover {
-    opacity: 0.8;
+/* Homepage nav logo: hidden while hero is in view, fades in on scroll */
+.nav.hero-visible .nav-logo {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .hero-strapline {
@@ -815,7 +900,20 @@ footer a:hover { color: var(--navy); }
 
 .stat-block {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Reserve a prefix-sized slot on every stat block so big numbers align
+   on the same baseline whether or not a ".figure-prefix" is present. */
+.stat-block::before {
+    content: "";
+    display: block;
+    height: 1.2rem;
+    margin-bottom: 0.35rem;
+}
+.stat-block:has(.figure-prefix)::before { display: none; }
 
 .stat-figure {
     font-family: 'Libre Baskerville', Georgia, serif;
@@ -1371,6 +1469,24 @@ footer a:hover { color: var(--navy); }
     text-align: center;
 }
 
+.ev-hero-eyebrow,
+.ev-hero-heading {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+}
+
+.ev-hero-eyebrow {
+    margin-bottom: 0.25rem;
+}
+
+.ev-hero-heading {
+    margin-bottom: 1.5rem;
+}
+
 /* ── Sections ── */
 .ev-section {
     padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem);
@@ -1380,15 +1496,12 @@ footer a:hover { color: var(--navy); }
 .ev-section--opportunity { background: var(--cream); }
 
 .ev-eyebrow {
-    font-size: 0.72rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-blue);
     margin-bottom: 1rem;
-}
-.ev-section--opportunity .ev-eyebrow {
-    color: #8c6d2f;
 }
 
 .ev-action-title {
@@ -1431,6 +1544,12 @@ footer a:hover { color: var(--navy); }
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     align-items: stretch;
+}
+
+.ev-row-stats--single {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
 }
 
 .ev-row-source {
@@ -1500,21 +1619,16 @@ footer a:hover { color: var(--navy); }
 .ev-stat--risk .ev-figure {
     color: #c0392b;
 }
-.ev-section--opportunity .ev-figure {
-    color: #8c6d2f;
-}
-
 /* Figure prefix colour matches its parent stat */
 .ev-stat--risk .figure-prefix {
     color: #c0392b;
 }
-.ev-section--opportunity .figure-prefix {
-    color: #8c6d2f;
-}
 
-/* Hero figure ~1.6× normal */
+/* Hero figure — bolder weight to anchor the section; kept close in size to the
+   non-hero figure so longer values like "30–48%" don't wrap to two lines. */
 .ev-stat--hero .ev-figure {
-    font-size: clamp(3rem, 5.6vw, 4.4rem);
+    font-size: clamp(2.6rem, 4.6vw, 3.6rem);
+    font-weight: 700;
 }
 
 /* Text-style figures (no number, e.g. "Pronounced", "Lowest scorers") */
@@ -1712,9 +1826,11 @@ footer a:hover { color: var(--navy); }
 .objective-code {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-blue);
     letter-spacing: 0.02em;
-    min-width: 32px;
+    min-width: 96px;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
 }
 
 .objective-trigger .objective-expand {
@@ -2133,6 +2249,30 @@ footer a:hover { color: var(--navy); }
 .tt-type--discuss {
     background: #f5f0f8;
     color: #7b5ea7;
+}
+
+.tt-type--compete {
+    background: #fff1f2;
+    color: #b43044;
+}
+
+/* Learning-objective reference tag, shown inline after the type chip. */
+.tt-obj {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent-blue);
+    margin-left: 0.4rem;
+}
+
+/* Flagship learning-objective code chip (used on the modules accordion). */
+.mod-obj-code {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.75rem;
+    font-family: inherit;
 }
 
 .tt-break {

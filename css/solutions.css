@@ -125,9 +125,11 @@
 .objective-code {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-blue);
     letter-spacing: 0.02em;
-    min-width: 32px;
+    min-width: 96px;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
 }
 
 .objective-trigger .objective-expand {
