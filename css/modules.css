@@ -236,6 +236,30 @@
     color: #7b5ea7;
 }
 
+.tt-type--compete {
+    background: #fff1f2;
+    color: #b43044;
+}
+
+/* Learning-objective reference tag, shown inline after the type chip. */
+.tt-obj {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent-blue);
+    margin-left: 0.4rem;
+}
+
+/* Flagship learning-objective code chip (used on the modules accordion). */
+.mod-obj-code {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.75rem;
+    font-family: inherit;
+}
+
 .tt-break {
     background: var(--cream);
 }

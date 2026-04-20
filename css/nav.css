@@ -20,8 +20,18 @@
 }
 
 .nav-logo {
-    height: 32px;
+    /* 40px so the wordmark is the visual anchor of the banner */
+    height: 40px;
+    display: block;
     transition: opacity 0.2s;
+}
+
+/* Ensure the anchor wrapping the logo vertically centres inside the nav
+   and doesn't introduce extra baseline whitespace from inline layout. */
+.nav a:has(> .nav-logo) {
+    display: flex;
+    align-items: center;
+    line-height: 0;
 }
 
 .nav-logo:hover { opacity: 0.8; }
@@ -32,9 +42,12 @@
    and the home page uses a text eyebrow instead of a logo image. */
 
 /* ── Burger icon ── */
+/* Sized for visual parity with the .nav-logo (28px tall). Three 2px lines
+   with matching gaps fill a 28px box and read with similar weight to the
+   wordmark beside it. */
 .burger {
     width: 32px;
-    height: 24px;
+    height: 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,7 +62,7 @@
 .burger span {
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background: var(--text);
     border-radius: 2px;
     transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
@@ -61,11 +74,11 @@
 }
 
 /* Burger X state — translate to center and rotate.
-   Centre y = (24 - 3) / 2 = 10.5px from top.
-   Span 1 starts at y=0  → translateY(+10.5px)
-   Span 3 starts at y=21 → translateY(-10.5px) */
+   Centre y = (28 - 2) / 2 = 13px from top.
+   Span 1 starts at y=0  → translateY(+13px)
+   Span 3 starts at y=26 → translateY(-13px) */
 .burger.open span:nth-child(1) {
-    transform: translateY(10.5px) rotate(45deg);
+    transform: translateY(13px) rotate(45deg);
 }
 
 .burger.open span:nth-child(2) {
@@ -73,7 +86,7 @@
 }
 
 .burger.open span:nth-child(3) {
-    transform: translateY(-10.5px) rotate(-45deg);
+    transform: translateY(-13px) rotate(-45deg);
 }
 
 /* Always white when menu is open */
