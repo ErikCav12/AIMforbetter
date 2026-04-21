@@ -247,6 +247,31 @@
     margin-bottom: 0;
 }
 
+/* ── Section CTA ── */
+/* Sits under a section's content (stats, tiles, etc.) and routes the reader
+   to the relevant deep page. Single-button by default; add .section-cta--row
+   to wrap two or three buttons on a line with even spacing. */
+.section-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.section-cta--row {
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+    .section-cta--row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .section-cta--row .btn-primary {
+        text-align: center;
+    }
+}
+
 /* ── Founders strip ── */
 .founders-row {
     display: grid;
@@ -262,17 +287,23 @@
 }
 
 .founder-photo {
-    width: 64px;
-    height: 64px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background: var(--blue-subtle);
     flex-shrink: 0;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 1.25rem;
-    color: var(--navy);
+}
+
+.founder-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
 .founder h4 {
