@@ -941,6 +941,13 @@ footer a:hover { color: var(--navy); }
     margin-bottom: 0.5rem;
 }
 
+/* Risk modifier — draws the eye to the single most alarming figure in a
+   stats strip (e.g. the "lowest scorer" Gen Z stat). */
+.stat-figure--risk {
+    color: #c0392b;
+    font-weight: 700;
+}
+
 .stat-label {
     font-size: 0.85rem;
     color: var(--text-light);
