@@ -188,11 +188,20 @@ test.describe('Course Builder wizard — production', () => {
         expect(capturedPayload.agenda).toContain('SUGGESTED DAY');
     });
 
-    test('homepage hero links to the wizard', async ({ page }) => {
+    test('homepage hero and footer both link to the wizard', async ({ page }) => {
         await page.goto('http://127.0.0.1:8765/index.html');
-        const cta = page.locator('a.hero-cta');
-        await expect(cta).toBeVisible();
-        await expect(cta).toContainText('Design your training course');
-        await expect(cta).toHaveAttribute('href', /course-builder\.html$/);
+        const heroCta = page.locator('section.hero a.hero-cta');
+        await expect(heroCta).toBeVisible();
+        await expect(heroCta).toContainText('Design your training course');
+        await expect(heroCta).toHaveAttribute('href', /course-builder\.html$/);
+
+        const footerCta = page.locator('section.final-cta a.hero-cta');
+        await expect(footerCta).toContainText('Design your training course');
+        await expect(footerCta).toHaveAttribute('href', /course-builder\.html$/);
+
+        // Menu overlay also surfaces the wizard as a styled CTA.
+        const navCta = page.locator('.menu-overlay nav a.nav-cta');
+        await expect(navCta).toContainText('Design your day');
+        await expect(navCta).toHaveAttribute('href', /course-builder\.html$/);
     });
 });
