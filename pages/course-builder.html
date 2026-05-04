@@ -3,41 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Builder — Mockup | AIM</title>
-    <meta name="description" content="Internal mockup of the AIM course-builder wizard.">
-    <meta name="robots" content="noindex">
+    <title>Design your training course | AIM</title>
+    <meta name="description" content="Co-create a tailored AI training day for your team. Six questions, takes about five minutes, no commitment.">
+    <link rel="canonical" href="https://aimforbetter.co.uk/pages/course-builder.html">
+
+    <!-- Open Graph (LinkedIn, WhatsApp, Slack, iMessage) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AIM">
+    <meta property="og:title" content="Design your training course | AIM">
+    <meta property="og:description" content="Co-create a tailored AI training day for your team. Six questions, takes about five minutes, no commitment.">
+    <meta property="og:url" content="https://aimforbetter.co.uk/pages/course-builder.html">
+    <meta property="og:image" content="https://aimforbetter.co.uk/assets/favicon.png">
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Design your training course | AIM">
+    <meta name="twitter:description" content="Co-create a tailored AI training day for your team. Six questions, takes about five minutes, no commitment.">
+    <meta name="twitter:image" content="https://aimforbetter.co.uk/assets/favicon.png">
+
     <link rel="icon" href="../assets/favicon.png?v=2" type="image/png">
+    <script data-goatcounter="https://aim.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/bundle.css">
+    <link rel="stylesheet" href="../css/bundle.css?v=1777863208">
     <style>
-        /* ── Course Builder wizard styles ── */
+        /* ── Course Builder wizard ── */
         .cb-page { padding: 8rem clamp(1rem, 4vw, 4rem) 4rem; max-width: 920px; margin: 0 auto; }
-        .cb-mock-flag {
-            background: #fff4e5;
-            border: 1px solid #f0c987;
-            color: #8c6d2f;
-            padding: 0.6rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-            letter-spacing: 0.01em;
+
+        .cb-page-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
         }
         .cb-page h1 {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: clamp(2.2rem, 4.5vw, 3rem);
             color: var(--navy);
-            letter-spacing: -0.01em;
-            margin-bottom: 0.5rem;
+            letter-spacing: -0.015em;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
         }
         .cb-page-sub {
             color: var(--text-secondary);
-            font-size: 1.02rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.65;
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            max-width: 620px;
         }
 
         /* Wizard card */
@@ -45,18 +60,18 @@
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
+            padding: clamp(1.75rem, 3vw, 2.75rem);
             box-shadow: 0 4px 24px rgba(19, 7, 93, 0.06);
             position: relative;
             overflow: hidden;
         }
 
-        /* Progress bar */
+        /* Progress + meta line */
         .cb-progress {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.4rem;
         }
         .cb-progress-track {
             flex: 1;
@@ -73,12 +88,18 @@
             transition: width 0.4s var(--ease);
         }
         .cb-progress-label {
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.76rem;
+            font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--text-light);
             white-space: nowrap;
+        }
+        .cb-step-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 2.25rem;
+            font-style: italic;
         }
 
         /* Step container */
@@ -93,23 +114,29 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        .cb-section-number {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2.5rem;
+        .cb-step-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            background: var(--blue-subtle);
             color: var(--accent-blue);
-            line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.85rem;
         }
-        .cb-section-title {
+        .cb-step-title {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-size: clamp(1.55rem, 3vw, 1.95rem);
             color: var(--navy);
             letter-spacing: -0.01em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
         }
-        .cb-section-sub {
+        .cb-step-sub {
             color: var(--text-secondary);
-            font-size: 0.98rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
             line-height: 1.6;
             max-width: 640px;
@@ -128,7 +155,7 @@
         .cb-text {
             width: 100%;
             max-width: 520px;
-            padding: 0.75rem 1rem;
+            padding: 0.85rem 1rem;
             border: 1px solid var(--border);
             border-radius: 8px;
             font-family: inherit;
@@ -136,28 +163,53 @@
             color: var(--text);
             background: var(--white);
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .cb-text:focus { border-color: var(--accent-blue); }
-        textarea.cb-text { resize: vertical; min-height: 96px; max-width: 680px; }
+        .cb-text:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 88, 163, 0.1);
+        }
+        textarea.cb-text { resize: vertical; min-height: 120px; max-width: 680px; }
 
         /* Tile-style radios */
         .cb-tiles {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 0.75rem;
         }
         .cb-tile {
             cursor: pointer;
-            padding: 1rem 1.25rem;
+            padding: 1.1rem 1.25rem;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 12px;
             background: var(--white);
-            font-size: 0.92rem;
             color: var(--navy);
             text-align: center;
-            transition: border-color 0.15s, background 0.15s, transform 0.12s;
+            transition: border-color 0.18s, background 0.18s, transform 0.12s, box-shadow 0.18s;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            min-height: 76px;
+        }
+        .cb-tile-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        .cb-tile-sub {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .cb-tile-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-blue);
+            margin-bottom: 0.15rem;
         }
         .cb-tile input {
             position: absolute;
@@ -168,55 +220,94 @@
         .cb-tile:has(input:checked) {
             border-color: var(--accent-blue);
             background: var(--blue-subtle);
-            box-shadow: 0 0 0 1px var(--accent-blue) inset;
+            box-shadow: 0 0 0 1px var(--accent-blue) inset, 0 4px 12px rgba(0, 88, 163, 0.08);
         }
-        .cb-tile:hover { border-color: var(--accent-blue); }
+        .cb-tile:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
         .cb-tile:active { transform: scale(0.98); }
+
+        /* Format tiles (3 columns, larger) */
+        .cb-tiles--format {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 600px;
+            gap: 1rem;
+        }
+        .cb-tiles--format .cb-tile { padding: 1.5rem 1rem; min-height: 130px; }
+
+        /* Audience tiles (4 columns on desktop, 2 on mobile, with sub) */
+        .cb-tiles--audience {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.85rem;
+            max-width: 760px;
+        }
+        @media (min-width: 720px) {
+            .cb-tiles--audience { grid-template-columns: repeat(4, 1fr); }
+        }
+        .cb-tiles--audience .cb-tile { padding: 1.25rem 1rem; min-height: 96px; }
+
+        /* "Recommended" sub-tag inside a tile */
+        .cb-tile-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
 
         /* Likert grid */
         .cb-likert { display: grid; gap: 0.5rem; }
         .cb-likert-head {
             display: grid;
-            grid-template-columns: minmax(240px, 2fr) repeat(4, 1fr);
+            grid-template-columns: minmax(260px, 2fr) repeat(4, 1fr);
             gap: 0.5rem;
             font-size: 0.7rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-light);
-            padding: 0 0.5rem 0.5rem;
+            padding: 0 0.5rem 0.6rem;
         }
         .cb-likert-head > span:first-child { text-align: left; }
         .cb-likert-head > span:not(:first-child) { text-align: center; }
 
         .cb-likert-row {
             display: grid;
-            grid-template-columns: minmax(240px, 2fr) repeat(4, 1fr);
+            grid-template-columns: minmax(260px, 2fr) repeat(4, 1fr);
             gap: 0.5rem;
             align-items: stretch;
-            padding: 0.75rem 0.5rem;
+            padding: 0.85rem 0.5rem;
             border-top: 1px solid var(--border);
         }
         .cb-likert-row:first-of-type { border-top: none; }
         .cb-likert-question {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
             color: var(--navy);
             font-size: 0.95rem;
             line-height: 1.4;
+            gap: 0.2rem;
+        }
+        .cb-likert-question strong { color: var(--accent-blue); margin-right: 0.25rem; }
+        .cb-likert-context {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.45;
         }
         .cb-likert-option {
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 0.8rem;
             color: var(--navy);
-            padding: 0.4rem 0.25rem;
+            padding: 0.55rem 0.3rem;
             text-align: center;
-            transition: border-color 0.15s, background 0.15s;
+            transition: border-color 0.15s, background 0.15s, transform 0.1s;
             position: relative;
         }
         .cb-likert-option input {
@@ -231,18 +322,38 @@
             box-shadow: 0 0 0 1px var(--accent-blue) inset;
         }
         .cb-likert-option:hover { border-color: var(--accent-blue); }
+        .cb-likert-option:active { transform: scale(0.98); }
 
         .cb-likert-group-heading {
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.05rem;
+            font-size: 1rem;
+            font-weight: 700;
             color: var(--accent-blue);
-            letter-spacing: 0.02em;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            margin: 1.5rem 0 0.5rem;
+            margin: 1.75rem 0 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
         }
-        .cb-likert-group-heading:first-child { margin-top: 0; }
+        .cb-likert-group-heading:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
 
-        /* Wizard nav (Back / Next) */
+        .cb-objectives-meta {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .cb-objectives-meta strong { color: var(--accent-blue); margin-right: 0.3rem; }
+
+        /* Wizard nav */
         .cb-nav {
             display: flex;
             justify-content: space-between;
@@ -256,7 +367,7 @@
             font-family: inherit;
             font-size: 0.95rem;
             font-weight: 600;
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.6rem;
             border-radius: 999px;
             cursor: pointer;
             transition: transform 0.12s, background 0.18s, opacity 0.18s, box-shadow 0.18s;
@@ -267,18 +378,18 @@
             border: 1px solid var(--border);
             color: var(--text-secondary);
         }
-        .cb-nav-back:hover { border-color: var(--navy); color: var(--navy); }
-        .cb-nav-back:disabled { opacity: 0.4; cursor: not-allowed; }
+        .cb-nav-back:hover:not(:disabled) { border-color: var(--navy); color: var(--navy); }
+        .cb-nav-back:disabled { opacity: 0.35; cursor: not-allowed; }
 
         .cb-nav-next {
             background: linear-gradient(135deg, var(--accent-blue), var(--navy));
             border: none;
             color: var(--white);
-            box-shadow: 0 2px 8px rgba(0, 88, 163, 0.18);
+            box-shadow: 0 2px 10px rgba(0, 88, 163, 0.22);
         }
         .cb-nav-next:hover:not(:disabled) {
             transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(0, 88, 163, 0.28);
+            box-shadow: 0 6px 18px rgba(0, 88, 163, 0.32);
         }
         .cb-nav-next:disabled {
             background: var(--cream);
@@ -291,20 +402,29 @@
         .cb-output { display: none; margin-top: 3rem; animation: cb-fade-in 0.4s var(--ease); }
         .cb-output.is-revealed { display: block; }
 
-        .cb-output-restart {
-            margin-top: 2rem;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-family: inherit;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 0.6rem 1.25rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: border-color 0.18s, color 0.18s;
+        .cb-output-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
         }
-        .cb-output-restart:hover { border-color: var(--navy); color: var(--navy); }
+        .cb-output h2 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--navy);
+            letter-spacing: -0.015em;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .cb-output-intro {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.65;
+            margin-bottom: 2rem;
+            max-width: 680px;
+        }
 
         /* Agenda card */
         .cb-agenda {
@@ -312,22 +432,6 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 2rem clamp(1rem, 3vw, 2.5rem);
-            margin-top: 1.5rem;
-        }
-        .cb-agenda-tailored {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-            margin-bottom: 0.5rem;
-        }
-        .cb-agenda h3 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: clamp(1.4rem, 2.6vw, 1.75rem);
-            color: var(--navy);
-            letter-spacing: -0.01em;
-            margin-bottom: 1.5rem;
         }
         .cb-agenda-row {
             display: grid;
@@ -345,11 +449,11 @@
         }
         .cb-agenda-type {
             display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            padding: 0.15rem 0.5rem;
+            padding: 0.18rem 0.55rem;
             border-radius: 4px;
             background: var(--white);
             color: var(--navy);
@@ -361,9 +465,9 @@
         .cb-agenda-type--reflect  { background: #f5f0f8; color: #7b5ea7; }
         .cb-agenda-type--break    { background: var(--cream); color: var(--text-light); }
         .cb-agenda-module {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--navy);
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             margin-right: 0.4rem;
         }
         .cb-agenda-pillar-tag {
@@ -386,53 +490,136 @@
             line-height: 1.5;
         }
 
-        /* Notes block */
-        .cb-notes {
-            background: var(--cream);
+        /* CTA region under the agenda */
+        .cb-cta-region {
+            margin-top: 2.5rem;
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 2.5rem clamp(1.5rem, 3vw, 2.5rem);
-            margin-top: 3rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
+            padding: 2.25rem clamp(1.5rem, 3vw, 2.5rem);
+            text-align: center;
         }
-        .cb-notes h3 {
+        .cb-cta-heading {
             font-family: 'Libre Baskerville', Georgia, serif;
             color: var(--navy);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            margin-bottom: 0.4rem;
         }
-        .cb-notes h4 {
-            color: var(--navy);
-            font-size: 1rem;
+        .cb-cta-sub {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 540px;
+            margin: 0 auto 1.75rem;
+        }
+        .cb-cta-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .cb-cta-primary, .cb-cta-secondary {
+            font-family: inherit;
+            font-size: 0.98rem;
             font-weight: 600;
-            margin: 1.5rem 0 0.5rem;
+            padding: 0.85rem 1.7rem;
+            border-radius: 999px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.12s, box-shadow 0.18s, border-color 0.18s, background 0.18s, color 0.18s;
+            letter-spacing: 0.01em;
+            border: none;
         }
-        .cb-notes p { margin-bottom: 0.75rem; }
-        .cb-notes ul { margin: 0.5rem 0 1rem 1.25rem; }
-        .cb-notes li { margin-bottom: 0.4rem; }
-        .cb-notes code {
+        .cb-cta-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--navy));
+            color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 88, 163, 0.22);
+        }
+        .cb-cta-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(0, 88, 163, 0.32);
+        }
+        .cb-cta-secondary {
             background: var(--white);
-            padding: 0.1rem 0.35rem;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            font-size: 0.85em;
             color: var(--navy);
+            border: 1px solid var(--border);
         }
-        .cb-calc-tag {
-            display: inline-block;
-            font-size: 0.7rem;
+        .cb-cta-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        .cb-email-form {
+            display: none;
+            margin-top: 0.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            animation: cb-fade-in 0.28s var(--ease);
+        }
+        .cb-email-form.is-open { display: block; }
+        .cb-email-form-row {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 480px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .cb-email-form-row input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--white);
+            outline: none;
+            transition: border-color 0.18s, box-shadow 0.18s;
+        }
+        .cb-email-form-row input[type="email"]:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 88, 163, 0.1);
+        }
+        .cb-email-form-row button {
+            font-family: inherit;
+            font-size: 0.95rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.1rem 0.5rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-            vertical-align: middle;
+            padding: 0.85rem 1.5rem;
+            border-radius: 999px;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-blue), var(--navy));
+            color: var(--white);
+            border: none;
+            transition: transform 0.12s, opacity 0.18s;
         }
-        .cb-calc-tag--deterministic { background: #e7efff; color: #0058a3; }
-        .cb-calc-tag--qualitative   { background: #fff1f2; color: #b43044; }
+        .cb-email-form-row button:hover:not(:disabled) { transform: translateY(-1px); }
+        .cb-email-form-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .cb-email-message {
+            margin-top: 0.85rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: none;
+            min-height: 1.2em;
+        }
+        .cb-email-message.is-shown { display: block; }
+        .cb-email-message.is-error { color: #b43044; }
+
+        .cb-restart-link {
+            display: inline-block;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            padding: 0.5rem 0.75rem;
+            transition: color 0.18s;
+        }
+        .cb-restart-link:hover { color: var(--navy); }
 
         /* Mobile */
         @media (max-width: 720px) {
@@ -443,9 +630,11 @@
                 padding: 1rem 0.5rem;
             }
             .cb-likert-row .cb-likert-question { font-weight: 600; }
-            .cb-nav { flex-direction: row; }
-            .cb-nav-back, .cb-nav-next { padding: 0.7rem 1.1rem; font-size: 0.9rem; }
-            .cb-progress-label { font-size: 0.7rem; }
+            .cb-tiles { grid-template-columns: repeat(2, 1fr); }
+            .cb-tiles--format { grid-template-columns: repeat(3, 1fr); }
+            .cb-nav-back, .cb-nav-next { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
+            .cb-cta-row { flex-direction: column; align-items: stretch; }
+            .cb-cta-primary, .cb-cta-secondary { width: 100%; }
         }
     </style>
 </head>
@@ -468,6 +657,7 @@
             <a href="solutions.html">Solutions &amp; Methods</a>
             <a href="syllabus.html">Our Syllabus</a>
             <a href="modules.html">Modules &amp; Packages</a>
+            <a href="course-builder.html" class="active">Design your day</a>
             <a href="backstory.html">Our Backstory</a>
             <a href="contact.html">Contact Us</a>
             <p class="menu-strapline">Aim for better.</p>
@@ -477,9 +667,9 @@
     <main>
         <div class="cb-page">
 
-            <span class="cb-mock-flag">Internal mockup &middot; not linked from the public nav</span>
-            <h1>Course Builder</h1>
-            <p class="cb-page-sub">Tell us about your organisation, your people and your priorities. We'll co-create a programme that fits.</p>
+            <p class="cb-page-eyebrow">Course Builder</p>
+            <h1>Design your training course</h1>
+            <p class="cb-page-sub">Tell us about your organisation, your people and your priorities. In about five minutes we'll co-create a programme that fits.</p>
 
             <!-- Wizard card -->
             <div class="cb-wizard" id="cb-wizard">
@@ -490,61 +680,78 @@
                     </div>
                     <span class="cb-progress-label" id="cb-progress-label">Step 1 of 6</span>
                 </div>
+                <p class="cb-step-meta">About 5 minutes &middot; nothing is sent until you choose to share it</p>
 
                 <form id="cb-form" onsubmit="event.preventDefault();">
 
                     <!-- 1. WHO -->
                     <section class="cb-step is-active" data-step="1">
-                        <p class="cb-section-number">01</p>
-                        <h2 class="cb-section-title">Who</h2>
-                        <p class="cb-section-sub">Who is the training for? The more specific you are, the more tailored the agenda.</p>
+                        <span class="cb-step-badge">Step 01 &middot; Who</span>
+                        <h2 class="cb-step-title">Who is the training for?</h2>
+                        <p class="cb-step-sub">The more specific you are, the more tailored the agenda. We'll keep these answers private.</p>
 
                         <div class="cb-field">
                             <label class="cb-label" for="cb-company-name">Company name</label>
-                            <input class="cb-text" id="cb-company-name" name="cb-company-name" type="text" placeholder="e.g. Acme Consulting">
+                            <input class="cb-text" id="cb-company-name" name="cb-company-name" type="text" placeholder="e.g. Acme Consulting" maxlength="120">
                         </div>
 
                         <div class="cb-field">
                             <span class="cb-label">Company size</span>
                             <div class="cb-tiles">
-                                <label class="cb-tile"><input type="radio" name="cb-size" value="1-50">1&ndash;50</label>
-                                <label class="cb-tile"><input type="radio" name="cb-size" value="51-250">51&ndash;250</label>
-                                <label class="cb-tile"><input type="radio" name="cb-size" value="251-1000">251&ndash;1,000</label>
-                                <label class="cb-tile"><input type="radio" name="cb-size" value="1001-5000">1,001&ndash;5,000</label>
-                                <label class="cb-tile"><input type="radio" name="cb-size" value="5000+">5,000+</label>
+                                <label class="cb-tile"><span class="cb-tile-label">1&ndash;50</span><input type="radio" name="cb-size" value="1-50"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">51&ndash;250</span><input type="radio" name="cb-size" value="51-250"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">251&ndash;1,000</span><input type="radio" name="cb-size" value="251-1000"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">1,001&ndash;5,000</span><input type="radio" name="cb-size" value="1001-5000"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">5,000+</span><input type="radio" name="cb-size" value="5000+"></label>
                             </div>
                         </div>
 
                         <div class="cb-field">
                             <span class="cb-label">Industry</span>
                             <div class="cb-tiles">
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="tech">Tech &amp; Software</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="finance">Financial Services</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="prof">Professional Services</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="healthcare">Healthcare &amp; Life Sciences</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="public">Public Sector</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="retail">Retail &amp; Consumer</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="media">Media &amp; Marketing</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="manu">Manufacturing &amp; Engineering</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="education">Education</label>
-                                <label class="cb-tile"><input type="radio" name="cb-industry" value="other">Other</label>
+                                <label class="cb-tile"><span class="cb-tile-label">Tech &amp; Software</span><input type="radio" name="cb-industry" value="tech"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Financial Services</span><input type="radio" name="cb-industry" value="finance"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Professional Services</span><input type="radio" name="cb-industry" value="prof"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Healthcare &amp; Life Sciences</span><input type="radio" name="cb-industry" value="healthcare"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Public Sector</span><input type="radio" name="cb-industry" value="public"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Retail &amp; Consumer</span><input type="radio" name="cb-industry" value="retail"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Media &amp; Marketing</span><input type="radio" name="cb-industry" value="media"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Manufacturing &amp; Engineering</span><input type="radio" name="cb-industry" value="manu"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Education</span><input type="radio" name="cb-industry" value="education"></label>
+                                <label class="cb-tile"><span class="cb-tile-label">Other</span><input type="radio" name="cb-industry" value="other"></label>
                             </div>
                         </div>
                     </section>
 
                     <!-- 2. AUDIENCE -->
                     <section class="cb-step" data-step="2">
-                        <p class="cb-section-number">02</p>
-                        <h2 class="cb-section-title">Target audience</h2>
-                        <p class="cb-section-sub">Who is sitting in the room? Each audience maps to a different default emphasis across Capability, Governance and Behaviour.</p>
+                        <span class="cb-step-badge">Step 02 &middot; Audience</span>
+                        <h2 class="cb-step-title">Who's in the room?</h2>
+                        <p class="cb-step-sub">Each audience maps to a different default emphasis across Capability, Governance and Behaviour.</p>
 
                         <div class="cb-field">
                             <span class="cb-label">Primary audience</span>
-                            <div class="cb-tiles">
-                                <label class="cb-tile"><input type="radio" name="cb-audience" value="juniors">Early-career / Gen Z</label>
-                                <label class="cb-tile"><input type="radio" name="cb-audience" value="managers">Managers</label>
-                                <label class="cb-tile"><input type="radio" name="cb-audience" value="mixed">Mixed</label>
-                                <label class="cb-tile"><input type="radio" name="cb-audience" value="culture">Culture-wide</label>
+                            <div class="cb-tiles cb-tiles--audience" data-auto-advance="true">
+                                <label class="cb-tile">
+                                    <span class="cb-tile-label">Early-career / Gen Z</span>
+                                    <span class="cb-tile-sub">Mostly under 30, learning AI on the job</span>
+                                    <input type="radio" name="cb-audience" value="juniors">
+                                </label>
+                                <label class="cb-tile">
+                                    <span class="cb-tile-label">Managers</span>
+                                    <span class="cb-tile-sub">Reviewing AI-assisted work from juniors</span>
+                                    <input type="radio" name="cb-audience" value="managers">
+                                </label>
+                                <label class="cb-tile">
+                                    <span class="cb-tile-label">Mixed</span>
+                                    <span class="cb-tile-sub">Both in the same room</span>
+                                    <input type="radio" name="cb-audience" value="mixed">
+                                </label>
+                                <label class="cb-tile">
+                                    <span class="cb-tile-label">Culture-wide</span>
+                                    <span class="cb-tile-sub">All levels, focused on shared norms</span>
+                                    <input type="radio" name="cb-audience" value="culture">
+                                </label>
                             </div>
                         </div>
 
@@ -556,25 +763,52 @@
 
                     <!-- 3. WHERE -->
                     <section class="cb-step" data-step="3">
-                        <p class="cb-section-number">03</p>
-                        <h2 class="cb-section-title">Where</h2>
-                        <p class="cb-section-sub">We advocate for in-person wherever possible &mdash; the activities, the debate, the energy. Hybrid and remote formats are supported and will tailor the activity templates accordingly.</p>
+                        <span class="cb-step-badge">Step 03 &middot; Where</span>
+                        <h2 class="cb-step-title">How will the day be delivered?</h2>
+                        <p class="cb-step-sub">We advocate for in-person where possible &mdash; the activities, the debate, the energy. Hybrid and remote formats are supported and tailor the activity templates accordingly.</p>
 
                         <div class="cb-field">
                             <span class="cb-label">Delivery format</span>
-                            <div class="cb-tiles" style="grid-template-columns: repeat(3, 1fr); max-width: 520px;">
-                                <label class="cb-tile"><input type="radio" name="cb-format" value="in-person" checked>In-person<br><span style="font-size: 0.72rem; color: var(--text-light); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;">Recommended</span></label>
-                                <label class="cb-tile"><input type="radio" name="cb-format" value="hybrid">Hybrid</label>
-                                <label class="cb-tile"><input type="radio" name="cb-format" value="remote">Remote</label>
+                            <div class="cb-tiles cb-tiles--format" data-auto-advance="true">
+                                <label class="cb-tile">
+                                    <svg class="cb-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/>
+                                        <path d="M3 19v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1"/>
+                                        <path d="M15 14h2a4 4 0 0 1 4 4v1"/>
+                                    </svg>
+                                    <span class="cb-tile-label">In-person</span>
+                                    <span class="cb-tile-sub">Highest energy, fastest debate</span>
+                                    <span class="cb-tile-tag">Recommended</span>
+                                    <input type="radio" name="cb-format" value="in-person" checked>
+                                </label>
+                                <label class="cb-tile">
+                                    <svg class="cb-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="2" y="6" width="20" height="12" rx="2"/>
+                                        <path d="M12 6v12"/>
+                                        <circle cx="7" cy="12" r="1.5"/><circle cx="17" cy="12" r="1.5"/>
+                                    </svg>
+                                    <span class="cb-tile-label">Hybrid</span>
+                                    <span class="cb-tile-sub">Some in-person, some remote</span>
+                                    <input type="radio" name="cb-format" value="hybrid">
+                                </label>
+                                <label class="cb-tile">
+                                    <svg class="cb-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="3" y="4" width="18" height="13" rx="2"/>
+                                        <path d="M8 21h8M12 17v4"/>
+                                    </svg>
+                                    <span class="cb-tile-label">Remote</span>
+                                    <span class="cb-tile-sub">Fully online, breakout rooms</span>
+                                    <input type="radio" name="cb-format" value="remote">
+                                </label>
                             </div>
                         </div>
                     </section>
 
                     <!-- 4. CONCERNS -->
                     <section class="cb-step" data-step="4">
-                        <p class="cb-section-number">04</p>
-                        <h2 class="cb-section-title">Your concerns</h2>
-                        <p class="cb-section-sub">What worries you most about AI in your organisation? Stronger concerns boost the related modules in the day's agenda.</p>
+                        <span class="cb-step-badge">Step 04 &middot; Concerns</span>
+                        <h2 class="cb-step-title">What worries you most?</h2>
+                        <p class="cb-step-sub">Stronger concerns boost the related modules in the day's agenda.</p>
 
                         <div class="cb-field">
                             <div class="cb-likert">
@@ -586,35 +820,35 @@
                                     <span>Strongly<br>agree</span>
                                 </div>
                                 <div class="cb-likert-row">
-                                    <span class="cb-likert-question">Trust and accuracy of AI outputs</span>
+                                    <span class="cb-likert-question">Trust and accuracy of AI outputs<span class="cb-likert-context">When AI confidently states something wrong</span></span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-trust" value="1">Strongly disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-trust" value="2">Disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-trust" value="3">Agree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-trust" value="4">Strongly agree</label>
                                 </div>
                                 <div class="cb-likert-row">
-                                    <span class="cb-likert-question">Data security and confidentiality</span>
+                                    <span class="cb-likert-question">Data security and confidentiality<span class="cb-likert-context">Sensitive information leaving approved tools</span></span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-security" value="1">Strongly disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-security" value="2">Disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-security" value="3">Agree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-security" value="4">Strongly agree</label>
                                 </div>
                                 <div class="cb-likert-row">
-                                    <span class="cb-likert-question">Job displacement and career impact</span>
+                                    <span class="cb-likert-question">Job displacement and career impact<span class="cb-likert-context">Anxiety about what AI means for our team's future</span></span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-jobs" value="1">Strongly disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-jobs" value="2">Disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-jobs" value="3">Agree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-jobs" value="4">Strongly agree</label>
                                 </div>
                                 <div class="cb-likert-row">
-                                    <span class="cb-likert-question">Regulatory and compliance risk</span>
+                                    <span class="cb-likert-question">Regulatory and compliance risk<span class="cb-likert-context">AI use in scope of policy, legal or audit</span></span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-compliance" value="1">Strongly disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-compliance" value="2">Disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-compliance" value="3">Agree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-compliance" value="4">Strongly agree</label>
                                 </div>
                                 <div class="cb-likert-row">
-                                    <span class="cb-likert-question">Erosion of critical thinking and judgement</span>
+                                    <span class="cb-likert-question">Erosion of critical thinking and judgement<span class="cb-likert-context">People accepting AI answers without challenging them</span></span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-thinking" value="1">Strongly disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-thinking" value="2">Disagree</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-concern-thinking" value="3">Agree</label>
@@ -624,11 +858,13 @@
                         </div>
                     </section>
 
-                    <!-- 5. OBJECTIVES (all 13) -->
+                    <!-- 5. OBJECTIVES -->
                     <section class="cb-step" data-step="5">
-                        <p class="cb-section-number">05</p>
-                        <h2 class="cb-section-title">Learning objectives</h2>
-                        <p class="cb-section-sub">All 13 objectives across our three pillars. Score each one for importance &mdash; the top five become your day.</p>
+                        <span class="cb-step-badge">Step 05 &middot; Objectives</span>
+                        <h2 class="cb-step-title">Which learning aims matter most?</h2>
+                        <p class="cb-step-sub">All 13 objectives across our three pillars. Score each one for importance &mdash; the top five become your day.</p>
+
+                        <p class="cb-objectives-meta"><span><strong id="cb-obj-rated">0</strong> of 13 rated</span></p>
 
                         <div class="cb-field">
                             <div class="cb-likert">
@@ -640,84 +876,84 @@
                                     <span>Very<br>important</span>
                                 </div>
 
-                                <p class="cb-likert-group-heading">Capability</p>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C1</strong> &middot; Build awareness of AI risk and responsibility</span>
+                                <p class="cb-likert-group-heading">Capability &mdash; for your Gen Z workforce</p>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C1</strong> Build awareness of AI risk and responsibility</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c1" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c1" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c1" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c1" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C2</strong> &middot; Strengthen critical evaluation and due diligence skills</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C2</strong> Strengthen critical evaluation and due diligence skills</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c2" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c2" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c2" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c2" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C3</strong> &middot; Use AI responsibly within organisational boundaries</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C3</strong> Use AI responsibly within organisational boundaries</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c3" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c3" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c3" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c3" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C4</strong> &middot; Select and use the right AI tools for the task</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C4</strong> Select and use the right AI tools for the task</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c4" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c4" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c4" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c4" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C5</strong> &middot; Manage AI effectively as a working partner</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>C5</strong> Manage AI effectively as a working partner</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c5" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c5" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c5" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-c5" value="4">Very important</label>
                                 </div>
 
-                                <p class="cb-likert-group-heading">Governance</p>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G1</strong> &middot; Strengthen the review process and reduce the time burden of reviewing AI outputs</span>
+                                <p class="cb-likert-group-heading">Governance &mdash; for your managers</p>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G1</strong> Strengthen the review process and reduce the time burden of reviewing AI outputs</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g1" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g1" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g1" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g1" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G2</strong> &middot; Increase visibility without unnecessary control burden</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G2</strong> Increase visibility without unnecessary control burden</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g2" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g2" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g2" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g2" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G3</strong> &middot; Promote consistent, accountable AI use across teams</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G3</strong> Promote consistent, accountable AI use across teams</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g3" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g3" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g3" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g3" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G4</strong> &middot; Support safe adoption within organisational boundaries</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G4</strong> Support safe adoption within organisational boundaries</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g4" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g4" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g4" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g4" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G5</strong> &middot; Support responsible innovation while maintaining standards</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>G5</strong> Support responsible innovation while maintaining standards</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g5" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g5" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g5" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-g5" value="4">Very important</label>
                                 </div>
 
-                                <p class="cb-likert-group-heading">Behaviour</p>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B1</strong> &middot; Normalise transparent and responsible AI use</span>
+                                <p class="cb-likert-group-heading">Behaviour &mdash; for your culture</p>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B1</strong> Normalise transparent and responsible AI use</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b1" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b1" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b1" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b1" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B2</strong> &middot; Establish shared expectations and boundaries</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B2</strong> Establish shared expectations and boundaries</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b2" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b2" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b2" value="3">Important</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b2" value="4">Very important</label>
                                 </div>
-                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B3</strong> &middot; Strengthen a culture of critical thinking</span>
+                                <div class="cb-likert-row"><span class="cb-likert-question"><strong>B3</strong> Strengthen a culture of critical thinking</span>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b3" value="1">Very unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b3" value="2">Unimportant</label>
                                     <label class="cb-likert-option"><input type="radio" name="cb-obj-b3" value="3">Important</label>
@@ -729,12 +965,12 @@
 
                     <!-- 6. WHY -->
                     <section class="cb-step" data-step="6">
-                        <p class="cb-section-number">06</p>
-                        <h2 class="cb-section-title">Why</h2>
-                        <p class="cb-section-sub">The single outcome that would make the day worth it.</p>
+                        <span class="cb-step-badge">Step 06 &middot; Why</span>
+                        <h2 class="cb-step-title">What would make the day worth it?</h2>
+                        <p class="cb-step-sub">In one sentence &mdash; if your team got one thing out of the day, what would it be?</p>
 
                         <div class="cb-field">
-                            <label class="cb-label" for="cb-why">If there was one thing your team got out of this course, what would it be?</label>
+                            <label class="cb-label" for="cb-why">The one outcome that would make the day a success</label>
                             <textarea class="cb-text" id="cb-why" name="cb-why" rows="3" placeholder="e.g. Confidence to review juniors' AI-assisted work without adding hours to my week."></textarea>
                         </div>
                     </section>
@@ -750,65 +986,36 @@
 
             <!-- Output (hidden until wizard submitted) -->
             <section class="cb-output" id="cb-output" aria-live="polite">
-                <p class="cb-section-number" style="margin-top: 3rem;">Your day</p>
-                <h2 class="cb-section-title">A day designed around your priorities</h2>
-                <p class="cb-section-sub" id="cb-intro-paragraph">A preview of how AIM would assemble the day, based on your answers.</p>
+                <p class="cb-output-eyebrow" id="cb-agenda-tailored">Tailored for your team</p>
+                <h2 id="cb-agenda-heading">Your tailored day</h2>
+                <p class="cb-output-intro" id="cb-intro-paragraph">A day designed around your priorities. The agenda below is built on the answers you gave &mdash; every module, activity and reflection traces back to something you told us.</p>
 
                 <div class="cb-agenda" id="cb-agenda">
-                    <p class="cb-agenda-tailored" id="cb-agenda-tailored">Tailored for: your team &middot; in-person</p>
-                    <h3 id="cb-agenda-heading">Your tailored day</h3>
                     <div id="cb-agenda-rows"></div>
                 </div>
 
-                <button class="cb-output-restart" id="cb-restart" type="button">&#8635; Start over</button>
-            </section>
+                <!-- Two-track CTA region -->
+                <div class="cb-cta-region">
+                    <h3 class="cb-cta-heading">Like what you see?</h3>
+                    <p class="cb-cta-sub">We'd refine this with you on a 30-minute call &mdash; or send you a polished version to share with your team.</p>
 
-            <!-- Notes / rationale -->
-            <section class="cb-notes">
-                <h3>Notes &mdash; design rationale and AI role</h3>
-                <p>Two ways AI contributes to the output, flagged inline below:</p>
-                <ul>
-                    <li><span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span> Calculated from a scoring rubric we maintain. Same inputs always produce the same output. Used for module selection, pillar mix, activity templates, closing commitment, industry pulse-check.</li>
-                    <li><span class="cb-calc-tag cb-calc-tag--qualitative">Qualitative</span> Synthesised by an LLM against our modules knowledge base and the customer's own answers. Used for sector-specific case studies and culture-tuned phrasing in the production tool. In this mockup these are deterministic stand-ins.</li>
-                </ul>
+                    <div class="cb-cta-row">
+                        <a class="cb-cta-primary" id="cb-book-call" href="#" target="_blank" rel="noopener">Book a 30-min call &rarr;</a>
+                        <button class="cb-cta-secondary" id="cb-toggle-email" type="button">Email me my plan</button>
+                    </div>
 
-                <h4>01 &middot; Who <span class="cb-calc-tag cb-calc-tag--qualitative">Qualitative</span></h4>
-                <p>Company name + size + industry feed deep research over public sources (company website, LinkedIn, press, sector reports). The production tool pulls sector-specific risks, recent AI incidents in the industry, and example workflows where AI typically lands first &mdash; then weaves those examples into the demos, discussion prompts and case studies. A 200-person fintech gets different case studies than a 5,000-person manufacturer; both look hand-built. In this mockup the industry choice swaps the morning pulse-check opener using a small library of stand-in copies.</p>
+                    <div class="cb-email-form" id="cb-email-form">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.85rem;">Where should we send it?</p>
+                        <form id="cb-email-form-inner" class="cb-email-form-row">
+                            <label class="sr-only" for="cb-email-input">Your work email</label>
+                            <input id="cb-email-input" name="email" type="email" placeholder="you@yourcompany.com" required autocomplete="email">
+                            <button type="submit" id="cb-email-submit">Send my plan</button>
+                        </form>
+                        <p class="cb-email-message" id="cb-email-message" aria-live="polite"></p>
+                    </div>
 
-                <h4>02 &middot; Target audience <span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span></h4>
-                <p>Each audience maps to a default pillar weight via a fixed rubric:</p>
-                <ul>
-                    <li><strong>Early-career / Gen Z:</strong> 70% Capability, 20% Behaviour, 10% Governance</li>
-                    <li><strong>Managers:</strong> 20% Capability, 70% Governance, 10% Behaviour</li>
-                    <li><strong>Mixed:</strong> 40% Capability, 35% Governance, 25% Behaviour</li>
-                    <li><strong>Culture-wide:</strong> 30% Capability, 30% Governance, 40% Behaviour</li>
-                </ul>
-                <p>The one-word culture descriptor is bucketed into one of four tone registers (cautious, fast-moving, collaborative, formal) which tweaks the intro paragraph phrasing. In the production tool this is LLM-driven against the customer's own language.</p>
-
-                <h4>03 &middot; Where <span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span></h4>
-                <p>Delivery format swaps the activity templates. In-person uses stand-up/sit-down voting, physical card drops and live paired exercises. Remote uses breakout rooms, shared docs and anonymous polls. Hybrid picks the in-person activity for co-located participants and provides a parallel remote variant.</p>
-
-                <h4>04 &middot; Concerns <span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span></h4>
-                <p>Each concern boosts a small set of objectives by 30% in the final scoring. Boost rules:</p>
-                <ul>
-                    <li><strong>Trust and accuracy</strong> &rarr; C1, C2</li>
-                    <li><strong>Data security and confidentiality</strong> &rarr; C3, G4</li>
-                    <li><strong>Job displacement and career impact</strong> &rarr; B1, B2</li>
-                    <li><strong>Regulatory and compliance risk</strong> &rarr; G3, G4, G5</li>
-                    <li><strong>Erosion of critical thinking and judgement</strong> &rarr; B3, C2</li>
-                </ul>
-                <p>Boost only applies if the concern was scored 3 (Agree) or 4 (Strongly agree).</p>
-
-                <h4>05 &middot; Objectives <span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span></h4>
-                <p>Final score per objective:</p>
-                <p style="background: var(--white); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; font-size: 0.85rem;">finalScore = pillarWeight(audience, pillar) &times; likertScore &times; concernsBoost</p>
-                <p>Top 5 by final score become the day's modules. Objectives scored 1&ndash;2 (Very unimportant / Unimportant) are excluded even if their weighted score is high. Tie-break is alphabetical objective code (C1 &lt; C2 &lt; &hellip; &lt; G1 &lt; &hellip; &lt; B1).</p>
-
-                <h4>06 &middot; Why <span class="cb-calc-tag cb-calc-tag--deterministic">Deterministic</span></h4>
-                <p>The free-text outcome is keyword-matched against six closing-commitment templates. Phrases like &ldquo;spotting AI nonsense&rdquo; route to one template, &ldquo;managing my juniors&rdquo; to another. In the production tool the LLM picks the template and tunes the wording to the customer's exact phrasing.</p>
-
-                <h4>On the agenda output</h4>
-                <p>Every day opens with a fixed <strong>Welcome &amp; pulse check</strong> and closes with a fixed <strong>Commitments &amp; close</strong>. Modules in between follow a consistent <strong>15-minute overview &rarr; 30-minute activity &rarr; 15-minute reflection</strong> cadence. This structural consistency is deliberate: it makes the day feel designed rather than improvised, and it keeps the facilitator's time budget predictable.</p>
+                    <button class="cb-restart-link" id="cb-restart" type="button">or start over</button>
+                </div>
             </section>
 
         </div>
@@ -835,8 +1042,8 @@
         </div>
     </footer>
 
-    <script src="../js/bundle.js"></script>
-    <script src="../js/course-builder.js"></script>
+    <script src="../js/bundle.js?v=1777863208"></script>
+    <script src="../js/course-builder.js?v=1776792806"></script>
 
 </body>
 </html>
